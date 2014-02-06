@@ -19,7 +19,11 @@ public class scanner {
 			d.setup("test1");
 			TOKEN D = d.next();
 			while (D.getType() != TOKEN.Types.EOF) {
-				System.out.println(D.toStringType());
+				if(D.getLexeme().equals("")) {
+					System.out.println(D.toStringType());
+				} else {
+					System.out.println(D.getLexeme());
+				}
 				D = d.next();
 			}
 		} catch (FileNotFoundException e) {
@@ -119,7 +123,7 @@ public class scanner {
 	public TOKEN readNumber(){
 		char oldchar = currentChar;
 		getChar();
-		return new TOKEN(TOKEN.Types.SYMBOL, new Integer(oldchar) , "");
+		return new TOKEN(TOKEN.Types.SYMBOL, new Integer(oldchar)-47 , "");
 	}
 	
 	
