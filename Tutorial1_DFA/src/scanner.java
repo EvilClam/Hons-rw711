@@ -123,7 +123,7 @@ public class scanner {
 	public TOKEN readNumber(){
 		char oldchar = currentChar;
 		getChar();
-		return new TOKEN(TOKEN.Types.SYMBOL, new Integer(oldchar)-47 , "");
+		return new TOKEN(TOKEN.Types.SYMBOL, new Integer(oldchar)-48 , "");
 	}
 	
 	

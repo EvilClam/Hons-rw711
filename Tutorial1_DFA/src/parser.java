@@ -19,21 +19,28 @@ public class parser {
 		parser s= new parser();
 		try {
 			s.setup("test1");
+			s.parse();
 		} catch (FileNotFoundException | IllegalDFAFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
-	public void setup(String dfa_file) throws FileNotFoundException, IllegalDFAFormatException {
+	public void setup(String dfa_file) throws FileNotFoundException {
 		sc = new scanner();
 		aRb = new HashMap<String, String>();
 		sc.setup(dfa_file);
 		currentToken = sc.next();
+		
+	}
+	
+	public void parse() throws IllegalDFAFormatException 
+	{
 		automaton();
 	}
 	
-	public void automaton() throws IllegalDFAFormatException {
+	
+	private void automaton() throws IllegalDFAFormatException {
 		expectToken(TOKEN.Types.DFA);
 		expectToken(TOKEN.Types.EQUALS);
 		expectToken(TOKEN.Types.OPEN_PARENTHESIS);
@@ -49,11 +56,11 @@ public class parser {
 		expectToken(TOKEN.Types.CLOSED_PARENTHESIS);
 	}
 	
-	public void states() throws IllegalDFAFormatException {
+	private void states() throws IllegalDFAFormatException {
 		states = idset();
 	}
 	
-	public void alphabet() throws IllegalDFAFormatException {
+	private void alphabet() throws IllegalDFAFormatException {
 		alphabet = new ArrayList<String>();
 		expectToken(TOKEN.Types.OPEN_BRACE);
 		alphabet.add(expectSymbol());
@@ -64,7 +71,7 @@ public class parser {
 		expectToken(TOKEN.Types.CLOSED_BRACE);
 	}
 	
-	public void tfunction() throws IllegalDFAFormatException {
+	private void tfunction() throws IllegalDFAFormatException {
 		expectToken(TOKEN.Types.OPEN_BRACE);
 		String [] mapping = map();
 		aRb.put(mapping[0] + mapping[1], mapping[2]);
@@ -78,15 +85,15 @@ public class parser {
 		expectToken(TOKEN.Types.CLOSED_BRACE);
 	}
 	
-	public void start() throws IllegalDFAFormatException {
+	private void start() throws IllegalDFAFormatException {
 		startState = expectID();
 	}
 	
-	public void accept() throws IllegalDFAFormatException {
+	private void accept() throws IllegalDFAFormatException {
 		acceptStates = idset();
 	}
 	
-	public ArrayList<String> idset() throws IllegalDFAFormatException {
+	private ArrayList<String> idset() throws IllegalDFAFormatException {
 		ArrayList<String> set = new ArrayList<String>();
 		expectToken(TOKEN.Types.OPEN_BRACE);
 		set.add(expectID());
@@ -98,7 +105,7 @@ public class parser {
 		return set;
 	}
 	
-	public String[] map() throws IllegalDFAFormatException {
+	private String[] map() throws IllegalDFAFormatException {
 		String [] tMap = new String[3];
 		expectToken(TOKEN.Types.OPEN_PARENTHESIS);
 		tMap[0] = expectID();
@@ -112,7 +119,7 @@ public class parser {
 	
 	
 	
-	public void expectToken(TOKEN.Types type) throws IllegalDFAFormatException {
+	private void expectToken(TOKEN.Types type) throws IllegalDFAFormatException {
 		
 		if(type != currentToken.getType()) {
 			System.out.println("Expected: " + type + " But found: " +  currentToken.getType());
@@ -121,7 +128,7 @@ public class parser {
 		currentToken = sc.next();
 	}
 	
-	public String expectID() throws IllegalDFAFormatException {
+	private String expectID() throws IllegalDFAFormatException {
 		String id;
 		if(TOKEN.Types.ID != currentToken.getType()) {
 			System.out.println("Expected: " + TOKEN.Types.SYMBOL + " But found: " +  currentToken.getType());
@@ -132,7 +139,7 @@ public class parser {
 		return id;
 	}
 	
-	public String expectSymbol() throws IllegalDFAFormatException {
+	private String expectSymbol() throws IllegalDFAFormatException {
 		String symbol;
 		if(TOKEN.Types.SYMBOL != currentToken.getType()) {
 			System.out.println("Expected: " + TOKEN.Types.SYMBOL + " But found: " +  currentToken.getType());
@@ -147,6 +154,23 @@ public class parser {
 		currentToken = sc.next();
 		return symbol;
 	}
+	
+	public ArrayList<String> getStates() {
+		return states;
+	}
+	public ArrayList<String> getAlphabet() {
+		return alphabet;
+	}
+	public ArrayList<String> getAcceptStates() {
+		return acceptStates;
+	}
+	public String getStartState() {
+		return startState;
+	}
+	public HashMap<String, String> getaRb() {
+		return aRb;
+	}
+
 }
 
 class IllegalDFAFormatException extends Exception
