@@ -9,9 +9,9 @@ public class DFAI {
 	public static void main(String[] args) 
 	{
 		//Change back to args[0]
-		String DFADesciption = "test1";
+		String DFADesciption =  args[0];
 		//Change back to args[1]
-		String DFAInput = "1011020111010111";
+		String DFAInput =  args[1];
 		DFAI dfa = new DFAI();
 		dfa.setup(DFADesciption);
 		String result;
@@ -31,6 +31,7 @@ public class DFAI {
 		try {
 			pr.setup(DFADesciption);
 			pr.parse();
+			mapping = pr.getaRb();
 		} catch (IOException | IllegalTokenException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -38,7 +39,7 @@ public class DFAI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		mapping = pr.getaRb();
+		
 	}
 	
 	public String simulateDFA(String DFAInput) throws IllegalInputException
