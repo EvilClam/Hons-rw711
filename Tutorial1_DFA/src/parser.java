@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,15 +19,15 @@ public class parser {
 	public static void main (String [] args) {
 		parser s= new parser();
 		try {
-			s.setup("test1");
-			s.parse();
-		} catch (FileNotFoundException | IllegalDFAFormatException e) {
+				s.setup("test1");
+				s.parse();
+		} catch (IllegalDFAFormatException | IOException | IllegalTokenException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
-	public void setup(String dfa_file) throws FileNotFoundException {
+	public void setup(String dfa_file) throws FileNotFoundException, IOException, IllegalTokenException {
 		sc = new scanner();
 		aRb = new HashMap<String, String>();
 		sc.setup(dfa_file);
@@ -34,13 +35,13 @@ public class parser {
 		
 	}
 	
-	public void parse() throws IllegalDFAFormatException 
+	public void parse() throws IllegalDFAFormatException, IOException, IllegalTokenException
 	{
 		automaton();
 	}
 	
 	
-	private void automaton() throws IllegalDFAFormatException {
+	private void automaton() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		expectToken(TOKEN.Types.DFA);
 		expectToken(TOKEN.Types.EQUALS);
 		expectToken(TOKEN.Types.OPEN_PARENTHESIS);
@@ -56,11 +57,11 @@ public class parser {
 		expectToken(TOKEN.Types.CLOSED_PARENTHESIS);
 	}
 	
-	private void states() throws IllegalDFAFormatException {
+	private void states() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		states = idset();
 	}
 	
-	private void alphabet() throws IllegalDFAFormatException {
+	private void alphabet() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		alphabet = new ArrayList<String>();
 		expectToken(TOKEN.Types.OPEN_BRACE);
 		alphabet.add(expectSymbol());
@@ -71,29 +72,43 @@ public class parser {
 		expectToken(TOKEN.Types.CLOSED_BRACE);
 	}
 	
-	private void tfunction() throws IllegalDFAFormatException {
+	private void tfunction() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		expectToken(TOKEN.Types.OPEN_BRACE);
 		String [] mapping = map();
+	
+		if (!isValidState(mapping[0]) || !isValidAlphabet( mapping[1]) || !isValidState(mapping[2])) {
+			throw new IllegalDFAFormatException();
+		}
 		aRb.put(mapping[0] + mapping[1], mapping[2]);
 		while (TOKEN.Types.CLOSED_BRACE != currentToken.getType()) {
 			expectToken(TOKEN.Types.COMMA);
 			mapping = map();
-			System.out.println((mapping[0] + mapping[1] +" :"+ mapping[2]));
+			if (!isValidState(mapping[0]) || !isValidAlphabet( mapping[1]) || !isValidState(mapping[2])) {
+				throw new IllegalDFAFormatException();
+			}
 			aRb.put(mapping[0] + mapping[1], mapping[2]);
 			
 		}
 		expectToken(TOKEN.Types.CLOSED_BRACE);
 	}
 	
-	private void start() throws IllegalDFAFormatException {
+	private void start() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		startState = expectID();
+		if (!isValidState(startState)) {
+			throw new IllegalDFAFormatException();
+		}
 	}
 	
-	private void accept() throws IllegalDFAFormatException {
+	private void accept() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		acceptStates = idset();
+		for (String i : acceptStates) {
+			if (!isValidState(i)) {
+				throw new IllegalDFAFormatException();
+			}
+		}
 	}
 	
-	private ArrayList<String> idset() throws IllegalDFAFormatException {
+	private ArrayList<String> idset() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		ArrayList<String> set = new ArrayList<String>();
 		expectToken(TOKEN.Types.OPEN_BRACE);
 		set.add(expectID());
@@ -105,7 +120,7 @@ public class parser {
 		return set;
 	}
 	
-	private String[] map() throws IllegalDFAFormatException {
+	private String[] map() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		String [] tMap = new String[3];
 		expectToken(TOKEN.Types.OPEN_PARENTHESIS);
 		tMap[0] = expectID();
@@ -119,7 +134,7 @@ public class parser {
 	
 	
 	
-	private void expectToken(TOKEN.Types type) throws IllegalDFAFormatException {
+	private void expectToken(TOKEN.Types type) throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		
 		if(type != currentToken.getType()) {
 			System.out.println("Expected: " + type + " But found: " +  currentToken.getType());
@@ -128,7 +143,7 @@ public class parser {
 		currentToken = sc.next();
 	}
 	
-	private String expectID() throws IllegalDFAFormatException {
+	private String expectID() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		String id;
 		if(TOKEN.Types.ID != currentToken.getType()) {
 			System.out.println("Expected: " + TOKEN.Types.SYMBOL + " But found: " +  currentToken.getType());
@@ -139,7 +154,7 @@ public class parser {
 		return id;
 	}
 	
-	private String expectSymbol() throws IllegalDFAFormatException {
+	private String expectSymbol() throws IllegalDFAFormatException, IOException, IllegalTokenException {
 		String symbol;
 		if(TOKEN.Types.SYMBOL != currentToken.getType()) {
 			System.out.println("Expected: " + TOKEN.Types.SYMBOL + " But found: " +  currentToken.getType());
@@ -153,6 +168,24 @@ public class parser {
 		
 		currentToken = sc.next();
 		return symbol;
+	}
+	
+	public boolean isValidState(String st) {
+		for (String i : states) {
+			if (i.equals(st)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean isValidAlphabet(String alp) {
+		for (String i : alphabet) {
+			if (i.equals(alp)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public ArrayList<String> getStates() {

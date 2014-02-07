@@ -1,43 +1,79 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class DFAI {
 
+	parser pr ;
+	HashMap<String, String> mapping;
 	public static void main(String[] args) 
 	{
 		//Change back to args[0]
 		String DFADesciption = "test1";
 		//Change back to args[1]
-		String DFAInput = "1010101010001011111100000";
-		parser pr = new parser();
+		String DFAInput = "1011020111010111";
+		DFAI dfa = new DFAI();
+		dfa.setup(DFADesciption);
+		String result;
+		try {
+			result = dfa.simulateDFA(DFAInput);
+			System.out.println(result);
+		} catch (IllegalInputException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	public void setup(String DFADesciption) {
+		pr = new parser();
 		try {
 			pr.setup(DFADesciption);
 			pr.parse();
-		} catch (FileNotFoundException e) {
+		} catch (IOException | IllegalTokenException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalDFAFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		HashMap<String, String> mapping = pr.getaRb();
+		mapping = pr.getaRb();
+	}
+	
+	public String simulateDFA(String DFAInput) throws IllegalInputException
+	{
 		String currentState = pr.getStartState();
 		String currentKey;
 		for (int i = 0 ; i < DFAInput.length() ; i++) {
 			
 			currentKey = currentState + DFAInput.subSequence(i, i + 1);
 			currentState = mapping.get(currentKey);
-			System.out.println(mapping);
-			System.out.println(currentKey);
+			if (currentState == null) {
+				throw new IllegalInputException(DFAInput.substring(i, i + 1));
+			}
 			
 		}
 		for (String i : pr.getAcceptStates()) {
 			if (currentState.equals(i)) {
-				System.out.println("accept");
-				return;
+				return "accept";
 			}
 		}
-		System.out.println("rejected");
-	}
+		return "rejected";
 
+	}
+}
+
+class IllegalInputException extends Exception
+{
+	String invalid ;
+	
+	public IllegalInputException(String invalidToken) {
+		invalid = invalidToken;
+	}
+	
+	public String toString() 
+	{
+		return "IllegalInputException: " + invalid;
+	}
 }

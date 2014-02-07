@@ -17,14 +17,25 @@ public class scanner {
 		scanner d = new scanner();
 		try {
 			d.setup("test1");
-			TOKEN D = d.next();
+			TOKEN D = null;
+			try {
+				D = d.next();
+			} catch (IOException | IllegalTokenException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			while (D.getType() != TOKEN.Types.EOF) {
 				if(D.getLexeme().equals("")) {
 					System.out.println(D.toStringType());
 				} else {
 					System.out.println(D.getLexeme());
 				}
-				D = d.next();
+				try {
+					D = d.next();
+				} catch (IOException | IllegalTokenException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -47,8 +58,10 @@ public class scanner {
 	/**
 	 * 
 	 * @return
+	 * @throws IOException 
+	 * @throws IllegalTokenException 
 	 */
-	public TOKEN next() 
+	public TOKEN next() throws IOException, IllegalTokenException 
 	{	
 		TOKEN next_token = null;
 		consumeWhiteSpace();
@@ -93,8 +106,12 @@ public class scanner {
 				next_token = new TOKEN(TOKEN.Types.EQUALS, 0, "");
 				getChar();
 				break;
-			default:
-				next_token = new TOKEN(TOKEN.Types.EOF, 0, "");
+			default:	
+				if (dfa_file.available() == 0) {
+					next_token = new TOKEN(TOKEN.Types.EOF, 0, "");
+				} else {
+					throw new IllegalTokenException(""+currentChar);
+				}
 				break;
 			}
 		}
@@ -146,4 +163,18 @@ public class scanner {
 		}
 	}
 
+}
+
+class IllegalTokenException extends Exception
+{
+	String invalid ;
+	
+	public IllegalTokenException(String invalidToken) {
+		invalid = invalidToken;
+	}
+	
+	public String toString() 
+	{
+		return "IllegalTokenException: " + invalid;
+	}
 }
