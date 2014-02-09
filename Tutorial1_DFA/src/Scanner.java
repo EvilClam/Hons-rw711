@@ -1,30 +1,27 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
 
 
-public class scanner {
+public class Scanner {
 	
 	private FileInputStream dfa_file;
 	private char currentChar;
 	
 	public static void main(String[] args) 
 	{
-		scanner d = new scanner();
+		Scanner d = new Scanner();
 		try {
 			d.setup("test1");
-			TOKEN D = null;
+			Token D = null;
 			try {
 				D = d.next();
 			} catch (IOException | IllegalTokenException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			while (D.getType() != TOKEN.Types.EOF) {
+			while (D.getType() != Token.Types.EOF) {
 				if(D.getLexeme().equals("")) {
 					System.out.println(D.toStringType());
 				} else {
@@ -61,9 +58,9 @@ public class scanner {
 	 * @throws IOException 
 	 * @throws IllegalTokenException 
 	 */
-	public TOKEN next() throws IOException, IllegalTokenException 
+	public Token next() throws IOException, IllegalTokenException 
 	{	
-		TOKEN next_token = null;
+		Token next_token = null;
 		consumeWhiteSpace();
 		if (currentChar == 0) {
 			
@@ -74,41 +71,41 @@ public class scanner {
 		} else {
 			switch (currentChar){
 			case '(':
-				next_token = new TOKEN(TOKEN.Types.OPEN_PARENTHESIS, 0, "");
+				next_token = new Token(Token.Types.OPEN_PARENTHESIS, 0, "");
 				getChar();
 				break;
 			case ')':
-				next_token = new TOKEN(TOKEN.Types.CLOSED_PARENTHESIS, 0, "");
+				next_token = new Token(Token.Types.CLOSED_PARENTHESIS, 0, "");
 				getChar();
 				break;
 			case ',':
-				next_token = new TOKEN(TOKEN.Types.COMMA, 0, "");
+				next_token = new Token(Token.Types.COMMA, 0, "");
 				getChar();
 				break;
 			case '{':
-				next_token = new TOKEN(TOKEN.Types.OPEN_BRACE, 0, "");
+				next_token = new Token(Token.Types.OPEN_BRACE, 0, "");
 				getChar();
 				break;
 			case '}':
-				next_token = new TOKEN(TOKEN.Types.CLOSED_BRACE, 0, "");
+				next_token = new Token(Token.Types.CLOSED_BRACE, 0, "");
 				getChar();
 				break;
 			case '-':
 				getChar();
 				if (currentChar == '>') {
-					next_token = new TOKEN(TOKEN.Types.ARROW, 0, "");
+					next_token = new Token(Token.Types.ARROW, 0, "");
 					getChar();
 				} else {
 					//Unrecognized token
 				}
 				break;
 			case '=':
-				next_token = new TOKEN(TOKEN.Types.EQUALS, 0, "");
+				next_token = new Token(Token.Types.EQUALS, 0, "");
 				getChar();
 				break;
 			default:	
 				if (dfa_file.available() == 0) {
-					next_token = new TOKEN(TOKEN.Types.EOF, 0, "");
+					next_token = new Token(Token.Types.EOF, 0, "");
 				} else {
 					throw new IllegalTokenException(""+currentChar);
 				}
@@ -118,9 +115,9 @@ public class scanner {
 		return next_token;	
 	}
 	
-	public TOKEN readWord() {
+	public Token readWord() {
 		StringBuilder word = new StringBuilder();
-		TOKEN token;
+		Token token;
 		
 		while (Character.isAlphabetic(currentChar) || Character.isDigit(currentChar)) {
 			word.append(currentChar);
@@ -128,19 +125,19 @@ public class scanner {
 		}
 
 		if (word.length() == 1) {
-			token = new TOKEN(TOKEN.Types.SYMBOL, 0, word.toString());
+			token = new Token(Token.Types.SYMBOL, 0, word.toString());
 		} else if(word.toString().equals("DFA")) {
-			token = new TOKEN(TOKEN.Types.DFA, 0, word.toString());
+			token = new Token(Token.Types.DFA, 0, word.toString());
 		} else {
-			token = new TOKEN(TOKEN.Types.ID, 0, word.toString());
+			token = new Token(Token.Types.ID, 0, word.toString());
 		}
 		return token;
 	}
 	
-	public TOKEN readNumber(){
+	public Token readNumber(){
 		char oldchar = currentChar;
 		getChar();
-		return new TOKEN(TOKEN.Types.SYMBOL, new Integer(oldchar)-48 , "");
+		return new Token(Token.Types.SYMBOL, new Integer(oldchar)-48 , "");
 	}
 	
 	

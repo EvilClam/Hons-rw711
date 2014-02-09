@@ -1,16 +1,30 @@
+/**
+ * @author Shaun Schreiber
+ * @version Final
+ * 
+ * Takes two commandline arguments as input. The first argument is the DFA file in that is in the correct EBNF format.
+ * The second argument is a String that will simulate the input to the DFA.
+ */
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class DFAI {
-
-	parser pr ;
-	HashMap<String, String> mapping;
+public class DFASimulator {
+	/**
+	 * 
+	 */
+	private Parser pr ;
+	
+	/**
+	 * @
+	 */
+	private HashMap<String, String> mapping;
+	
 	public static void main(String[] args) 
 	{
 		String DFADesciption =  args[0];
 		String DFAInput =  args[1];
-		DFAI dfa = new DFAI();
+		DFASimulator dfa = new DFASimulator();
 		try {
 			dfa.setup(DFADesciption);
 		} catch (IOException | IllegalTokenException e) {
@@ -27,13 +41,18 @@ public class DFAI {
 		} catch (IllegalInputException e) {
 			System.out.println(e + "\nreject");
 			
-		}
-		
-		
+		}		
 	}
 	
+	/**
+	 * 
+	 * @param DFADesciption
+	 * @throws IOException
+	 * @throws IllegalTokenException
+	 * @throws IllegalDFAFormatException
+	 */
 	public void setup(String DFADesciption) throws IOException, IllegalTokenException, IllegalDFAFormatException {
-		pr = new parser();
+		pr = new Parser();
 		pr.setup(DFADesciption);
 		pr.parse();
 		mapping = pr.getaRb();
@@ -41,6 +60,12 @@ public class DFAI {
 		
 	}
 	
+	/**
+	 * 
+	 * @param DFAInput
+	 * @return
+	 * @throws IllegalInputException
+	 */
 	public String simulateDFA(String DFAInput) throws IllegalInputException
 	{
 		String currentState = pr.getStartState();
@@ -60,18 +85,32 @@ public class DFAI {
 			}
 		}
 		return "reject";
-
 	}
 }
 
+/**
+ * 
+ * @author EvilClam
+ *
+ */
 class IllegalInputException extends Exception
 {
+	/**
+	 * 
+	 */
 	String invalid ;
 
+	/**
+	 * 
+	 * @param invalidToken
+	 */
 	public IllegalInputException(String invalidToken) {
 		invalid = invalidToken;
 	}
 	
+	/**
+	 * 
+	 */
 	public String toString() 
 	{
 		return "IllegalInputException: " + invalid;

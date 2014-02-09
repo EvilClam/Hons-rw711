@@ -1,11 +1,11 @@
 
-public class TOKEN {
+public class Token {
 	
 	private final Types type;
 	private final int number;
 	private final String lexeme;
 	
-	public TOKEN(Types type, int number, String lexeme) {
+	public Token(Types type, int number, String lexeme) {
 		this.type = type;
 		this.number = number;
 		this.lexeme = lexeme;
