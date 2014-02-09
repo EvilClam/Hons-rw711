@@ -10,13 +10,12 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class DFASimulator {
-	/**
-	 * 
-	 */
+	
+
 	private Parser pr ;
 	
 	/**
-	 * @
+	 * Stores all of the given transformations that were specified in the given EBNF.
 	 */
 	private HashMap<String, String> mapping;
 	
@@ -45,26 +44,24 @@ public class DFASimulator {
 	}
 	
 	/**
-	 * 
-	 * @param DFADesciption
-	 * @throws IOException
-	 * @throws IllegalTokenException
-	 * @throws IllegalDFAFormatException
-	 */
+	 * Initializes and runs the scanner and parser on the specified file.
+	 * @param DFADesciption The path to the DFA file.
+	 * @throws IOException If the File could not be found.
+	 * @throws IllegalTokenException The DFA file contains illegal characters.  
+	 * @throws IllegalDFAFormatException 	
+	 *  */
 	public void setup(String DFADesciption) throws IOException, IllegalTokenException, IllegalDFAFormatException {
 		pr = new Parser();
 		pr.setup(DFADesciption);
 		pr.parse();
-		mapping = pr.getaRb();
-		
-		
+		mapping = pr.getaRb();	
 	}
 	
 	/**
-	 * 
-	 * @param DFAInput
-	 * @return
-	 * @throws IllegalInputException
+	 * Simulates a DFA and uses the DFAInput to simulate the input to the DFA.
+	 * @param DFAInput String that is used to simulate the input to the DFA.
+	 * @return accept if the DFAIpnut string is in an accept state when i the input finishes else reject.
+	 * @throws IllegalInputException The input contains characters that is not part of the specified alphabet.
 	 */
 	public String simulateDFA(String DFAInput) throws IllegalInputException
 	{
@@ -89,28 +86,20 @@ public class DFASimulator {
 }
 
 /**
- * 
  * @author EvilClam
- *
+ * This exception gets throw when a given input contains a character that is not in the given alphabet. 
  */
 class IllegalInputException extends Exception
 {
 	/**
-	 * 
+	 * The invalid character.
 	 */
 	String invalid ;
 
-	/**
-	 * 
-	 * @param invalidToken
-	 */
 	public IllegalInputException(String invalidToken) {
 		invalid = invalidToken;
 	}
 	
-	/**
-	 * 
-	 */
 	public String toString() 
 	{
 		return "IllegalInputException: " + invalid;

@@ -1,3 +1,7 @@
+/**
+ * @author Shaun Schreiber
+ * The purpose of this class is to tokenize the given format and to identify illegal characters. 
+ */
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -53,10 +57,9 @@ public class Scanner {
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Reads the current character and then build up a valid token and assigns the correct token type. 
+	 * @return The next valid token.
 	 * @throws IOException 
-	 * @throws IllegalTokenException 
 	 */
 	public Token next() throws IOException, IllegalTokenException 
 	{	
@@ -115,7 +118,12 @@ public class Scanner {
 		return next_token;	
 	}
 	
-	public Token readWord() {
+	/**
+	 * Builds up a DFA, SYMBOL or ID token
+	 * @return DFA, SYMBOL or ID token.
+	 */
+	public Token readWord() 
+	{
 		StringBuilder word = new StringBuilder();
 		Token token;
 		
@@ -134,19 +142,30 @@ public class Scanner {
 		return token;
 	}
 	
-	public Token readNumber(){
+	/**
+	 * Builds up a SYMBOL that has an integer value.
+	 * @return SYMBOL
+	 */
+	public Token readNumber()
+	{
 		char oldchar = currentChar;
 		getChar();
 		return new Token(Token.Types.SYMBOL, new Integer(oldchar)-48 , "");
 	}
 	
-	
-	private void consumeWhiteSpace() {
+	/**
+	 * Consumes spaces, tabs and newlines.
+	 */
+	private void consumeWhiteSpace() 
+	{
 		while (currentChar == ' ' || currentChar  == '\t' || currentChar == '\n') {
 			getChar();
 		}
 	}
 	
+	/**
+	 * Returns the next character. Note it ignores newline characters.
+	 */
 	private void getChar()
 	{
 		try {
