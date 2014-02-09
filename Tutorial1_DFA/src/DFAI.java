@@ -8,37 +8,36 @@ public class DFAI {
 	HashMap<String, String> mapping;
 	public static void main(String[] args) 
 	{
-		//Change back to args[0]
 		String DFADesciption =  args[0];
-		//Change back to args[1]
 		String DFAInput =  args[1];
 		DFAI dfa = new DFAI();
-		dfa.setup(DFADesciption);
+		try {
+			dfa.setup(DFADesciption);
+		} catch (IOException | IllegalTokenException e) {
+			System.out.println(e + "\nreject");
+			return;
+		} catch (IllegalDFAFormatException e) {
+			System.out.println(e + "\nreject");
+			return;
+		}
 		String result;
 		try {	
 			result = dfa.simulateDFA(DFAInput);
 			System.out.println(result);
 		} catch (IllegalInputException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e + "\nreject");
+			
 		}
 		
 		
 	}
 	
-	public void setup(String DFADesciption) {
+	public void setup(String DFADesciption) throws IOException, IllegalTokenException, IllegalDFAFormatException {
 		pr = new parser();
-		try {
-			pr.setup(DFADesciption);
-			pr.parse();
-			mapping = pr.getaRb();
-		} catch (IOException | IllegalTokenException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalDFAFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		pr.setup(DFADesciption);
+		pr.parse();
+		mapping = pr.getaRb();
+		
 		
 	}
 	
@@ -47,10 +46,10 @@ public class DFAI {
 		String currentState = pr.getStartState();
 		String currentKey;
 		for (int i = 0 ; i < DFAInput.length() ; i++) {
-			
 			currentKey = currentState + DFAInput.subSequence(i, i + 1);
-			currentState = mapping.get(currentKey);
-			if (currentState == null) {
+			if (pr.isValidAlphabet("" + DFAInput.subSequence(i, i + 1))) {
+				currentState = mapping.get(currentKey);
+			} else {
 				throw new IllegalInputException(DFAInput.substring(i, i + 1));
 			}
 			
@@ -60,7 +59,7 @@ public class DFAI {
 				return "accept";
 			}
 		}
-		return "rejected";
+		return "reject";
 
 	}
 }
@@ -68,7 +67,7 @@ public class DFAI {
 class IllegalInputException extends Exception
 {
 	String invalid ;
-	
+
 	public IllegalInputException(String invalidToken) {
 		invalid = invalidToken;
 	}
