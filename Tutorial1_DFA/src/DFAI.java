@@ -15,7 +15,7 @@ public class DFAI {
 		DFAI dfa = new DFAI();
 		dfa.setup(DFADesciption);
 		String result;
-		try {
+		try {	
 			result = dfa.simulateDFA(DFAInput);
 			System.out.println(result);
 		} catch (IllegalInputException e) {
