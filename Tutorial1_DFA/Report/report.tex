@@ -1,0 +1,65 @@
+\documentclass[a4paper, 10pt]{article}
+\author{Shaun Schreiber\\16715128}
+\date{9 February 2014}
+\title{RW771 Tutorial 1}
+\begin{document}
+\maketitle
+\section{Problem Description}
+Write a program that can parse and simulate any DFA that is in the correct EBNF\footnote{Extended Backus-Naur Form}, the EBNF is show in figure one.  
+The parser needs to be able to do the following: detect incorrect format, detect inconsistencies and extract and DFA 5-tuple\footnote{(states, alphabet, 
+transition function, starting state, accepting states)}. 
+The inconsistencies that should be detected are the following: The transition function specifies a mapping between two states and one of those 
+state do not exist, when a symbol is used to signal a transition between two states that is not part of the specified alphabet.
+The program needs to take in two argument. The first argument specifies the file where the DFA is located and 
+the second argument specifies the input to that DFA. When a DFA executes the input and it finishes in an accept state the word ``accept'' should be printed else the word ``reject'' should be printed. If any error accours, the correct error message should be printed and followed by the word ``reject''.
+\section{Design and Implementation}
+The program design is divide up into 3 section, a scanner, a parser and simulater.
+\subsection{Scanner}
+The task of this section is to build up tokens that is reconized by the specified EBNF.
+This will be achived in the follow way.
+\begin{itemize}
+\item Read a character.
+\item Is the character a letter. If so build up a string of characters till a white space is encountered and start again. If not go to the next step.
+\item Is the character a number. If so Create a symbol token that has the value of the number and start again.
+\item Is the character one of the following symbols, \{ \} = ( ) - and ,
+\item In the case where a - symbol is read. Read and check if the next symbol is a $>$ sign if so create the appropriate token and start again 
+else throw an error.
+\item If the EOF character is read stop. And test if the current symbol is valid. If so then create the appropriate token and stop else if not error.
+\item If the character is not identified stop processing the file and throw an error.
+\end{itemize}
+\subsection{Parser}
+The task of this section is to analise the syntax of the specified DFA to make sure it is in the correct format and extract the DFA 5-tuple.
+This is achived by implementing a recursive desent parser in the following manner. Variables\footnote{The words to the left of the equals sign that doesn't
+equate to only one token.} become functions. The left had side of the variables are then checked symbol by symbol. If the left hand side contains a variable
+then the appropriate function must be called. The 5-tuple that a DFA consists of is describe in the first production\footnote{A production looks like a 
+mathematical equation} of the EBNF thus as each part of the top production is finished. Its result can be stored into the corresponding variable.
+\subsection{Simulater}
+The task of this section is to simulate a DFA. This is achive by using the following algorithm.
+\begin{itemize}
+\item \texttt{Step 1} set currentState = startingState
+\item \texttt{Step 2} Read a character from the input and put it equal to currentCharacter. 
+\item \texttt{Step 3} Concatenate the currentState and the currentCharacter to form a key.
+\item \texttt{Step 4} set currentState = hashmap(key). If there are no more characters go to step 5 else got to step 2.
+\item \texttt{Step 5} Check if the currentState is indeed a accepting state if so display ``accept'' else ``reject''.
+\end{itemize}
+\section{Test Cases}
+\subsection{Test Case 1}
+Test: This Test case tests if the starting state is not the final state and there is no input string.\\
+DFA:automaton = (\{q1,q2\}, \{0, 1\},\{(q1,0) -$>$ q1, (q1,1) -$>$ q2\}, q1,\{q2\})\\
+Input String:\\
+Result:reject\\
+\subsection{Test Case 2}
+Test: This Test case tests if the starting state is the final state and there is no input string.\\
+DFA:automaton = (\{q1,q2\}, \{0, 1\},\{(q1,0) -$>$ q1, (q1,1) -$>$ q2\}, q2,\{q2\})\\
+Input String:\\
+Result:accept\\
+\subsection{Test Case 3}
+Test: This Test case tests if the solution can handle more than two states.\\
+DFA:automaton = (\{s,q1,q2,r1,r2\}, \{a, b\},\{(s,a) -$>$ q1, (s,b) -$>$ r1, (q1,a) -$>$ q1, (q1,b) -$>$ q2, (q2,b) -$>$ q2, (q2,a) -$>$ q1, (r1,b) -$>$ r1
+, (r1,a) -$>$ r2, (r2,a) -$>$ r2, (r1,b) -$>$ r1\}, s,\{q1, r1\})\\
+Input String:bbaabab\\
+Result:accept\\
+\subsection{Test Case 4}
+\subsection{Test Case 5}
+\subsection{Test Case 6}
+\end{document}

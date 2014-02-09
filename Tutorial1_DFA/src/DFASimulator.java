@@ -20,9 +20,18 @@ public class DFASimulator {
 	private HashMap<String, String> mapping;
 	
 	public static void main(String[] args) 
-	{
-		String DFADesciption =  args[0];
-		String DFAInput =  args[1];
+	{	
+		String DFADesciption = "";
+		String DFAInput = "";
+		if (args.length  > 1) {
+			DFADesciption =  args[0];
+			DFAInput =  args[1];
+		} else if (args.length == 1) {
+			DFADesciption =  args[0];
+		} else {
+			System.out.println("No arguments specified <DFA file> <DFA input>");
+			return;
+		}
 		DFASimulator dfa = new DFASimulator();
 		try {
 			dfa.setup(DFADesciption);
