@@ -211,13 +211,9 @@ public class Parser {
 	private String expectID() throws IllegalDFAFormatException, IOException, IllegalTokenException 
 	{
 		String id;
-		if(Token.Types.SYMBOL != currentToken.getType() && Token.Types.ID != currentToken.getType()) {
+		if(Token.Types.ID != currentToken.getType()) {
 			System.out.println("Expected: " + Token.Types.ID + " But found: " +  currentToken.getType());
 			throw new IllegalDFAFormatException();
-		} else if (Token.Types.SYMBOL == currentToken.getType() && currentToken.getLexeme().equals("")) {
-			System.out.println("Expected: " + Token.Types.ID + " But found: " +  currentToken.getType());
-                	throw new IllegalDFAFormatException();
-
 		}
 		id = currentToken.getLexeme();
 		currentToken = sc.next();
