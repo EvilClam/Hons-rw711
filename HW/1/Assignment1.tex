@@ -1,0 +1,28 @@
+\documentclass[A4paper, 10pt]{article}
+\title{Post Correspondence Problem \\ (Domino problem)}
+\author{Shaun Schreiber \\ 16715128}
+\date{9 February 2014}
+\begin{document}
+\maketitle
+
+\noindent The domino problem is an example of a problem where it is impossible to construct a single algorithm that
+leads to a correct match-or-no match answer. Although the domino problem can be explained in a number of ways the simplest involves the use of tiles. Thus for the purpose of this document we will define it as a set of tiles where each tile is divided into two sections(top and bottom). Each section contains a set of characters. This can be seen by the visual representation below:
+
+\[\left\{\left[\frac{i}{ep}\right], \left[\frac{p}{pi}\right],\left[\frac{ep}{p}\right],\left[\frac{pie}{e}\right]\right\}\]
+
+\noindent The goal is to order these tiles so that the string that is formed by all of the top sections is equal to the string that is formed by all of the
+bottom sections. This is known as a match (Note repetition of a tile is permited). See visual representation below for a match:
+\[\left\{\left[\frac{p}{pi}\right], \left[\frac{i}{ep}\right],\left[\frac{ep}{p}\right],\left[\frac{p}{pi}\right],\left[\frac{pie}{e}\right]\right\}\]
+Getting a match isn't always possible. If you look at the following set of tiles it can never have a match because the top and bottom doesn't even consist of
+the same characters.
+\[\left[\frac{i}{p}\right], \left[\frac{p}{i}\right],\left[\frac{d}{z}\right]\]
+Now that you know wat a match is and that there are sets of tiles that do not have a match. Can we then now find an algorithm
+that can determine whether any set of tiles have a match? The answer to that question is no. Lets look at the following example.
+\[\left[\frac{i}{p}\right], \left[\frac{p}{i}\right],\left[\frac{i}{i}\right]\]
+This example does not have a match. For a computer to determine this it will have to go through all of the possible combinations which there are infinitely 
+many because we are allowed to use a tile more than once. This is thus not solvable using the first algorithm. This is why the domino problem is an example of a problem where it is impossible to construct a single algorithm that
+leads to a correct match-or-no match answer.
+\begin{thebibliography}{0}
+\bibitem{reff} Sipser, M. Introduction to the Theory of Computation. Cengage Learning. 2013.
+\end{thebibliography}
+\end{document}
