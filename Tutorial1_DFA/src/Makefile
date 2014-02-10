@@ -9,7 +9,7 @@ all: compile jar_client
 jar_client: ./
 	$(JAR_C) $^
 
-compile: *.java
+compile: DFASimulator.java Parser.java Scanner.java Token.java
 	$(JC) $^
 
 .PHONY: clean
