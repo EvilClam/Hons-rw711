@@ -8,38 +8,38 @@
 Write a program that can parse and simulate any DFA that is in the correct EBNF\footnote{Extended Backus-Naur Form}, the EBNF is show in the last section.  
 The parser needs to be able to do the following: detect incorrect format, detect inconsistencies and extract a DFA 5-tuple\footnote{(states, alphabet, 
 transition function, starting state, accepting states)}. 
-The inconsistencies that should be detected are as follow. The transition function specifies a mapping between two states and one of those 
-states do not exist, when a symbol is used to signal a transition between two states that is not part of the specified alphabet.
-The program needs to take in two arguments. The first argument specifies the file where the DFA is located and 
-the second argument specifies the input to that DFA. When a DFA executes the input and it finishes in an accept state the word ``accept'' should be printed else the word ``reject'' should be printed. If any error occurs, the correct error message should be printed, followed by the word ``reject''.
+The inconsistencies that should be detected are the following: The transition function specifies a mapping between two states and one of those 
+state do not exist, when a symbol is used to signal a transition between two states that is not part of the specified alphabet.
+The program needs to take in two argument. The first argument specifies the file where the DFA is located and 
+the second argument specifies the input to that DFA. When a DFA executes the input and it finishes in an accept state the word ``accept'' should be printed else the word ``reject'' should be printed. If any error accours, the correct error message should be printed and followed by the word ``reject''.
 \section{Design and Implementation}
-The program design is divide up into 3 section. A scanner, parser and simulator.
+The program design is divide up into 3 section, a scanner, a parser and simulator.
 \subsection{Scanner}
 The task of this section is to build up tokens that is recognized by the specified EBNF.
 This will be achieved in the follow way.
 \begin{itemize}
 \item Read a character.
-\item Is the character a letter? If so build up a string of characters until a white space is encountered and start again. If not continue to the next step.
-\item Is the character a number? If so create a symbol token that has the value of the number and start again.
+\item Is the character a letter. If so build up a string of characters till a white space is encountered and start again. If not go to the next step.
+\item Is the character a number. If so Create a symbol token that has the value of the number and start again.
 \item Is the character one of the following symbols, \{ \} = ( ) - and ,
-\item In the case where a - symbol is read, read and check if the next symbol is a $>$ sign if so, create the appropriate token and start again 
+\item In the case where a - symbol is read. Read and check if the next symbol is a $>$ sign if so create the appropriate token and start again 
 else throw an error.
-\item If the EOF character is read, stop test if the current symbol is valid. If so, create the appropriate token and stop else if not error.
+\item If the EOF character is read stop. And test if the current symbol is valid. If so then create the appropriate token and stop else if not error.
 \item If the character is not identified stop processing the file and throw an error.
 \end{itemize}
 \subsection{Parser}
-The task of this section is to Analyse the syntax of the specified DFA to make sure it is in the correct format and extract the DFA 5-tuple.
-This is achieved by implementing a recursive descend parser in the following manner. Variables\footnote{The words to the left of the equals sign that doesn't
-equate to only one token.} become functions. The left-hand side of the variables are then checked per symbol. If the left-hand side contains a variable
-, the appropriate function must be called. The 5-tuple that a DFA consists of is described in the first production\footnote{A production looks like a 
-mathematical equation} of the EBNF thus as each part of the top production is finished. The result can be stored into the corresponding variable.
+The task of this section is to Analise the syntax of the specified DFA to make sure it is in the correct format and extract the DFA 5-tuple.
+This is achieved by implementing a recursive desent parser in the following manner. Variables\footnote{The words to the left of the equals sign that doesn't
+equate to only one token.} become functions. The left had side of the variables are then checked symbol by symbol. If the left hand side contains a variable
+then the appropriate function must be called. The 5-tuple that a DFA consists of is describe in the first production\footnote{A production looks like a 
+mathematical equation} of the EBNF thus as each part of the top production is finished. Its result can be stored into the corresponding variable.
 \subsection{Simulator}
 The task of this section is to simulate a DFA. This is achieve by using the following algorithm.
 \begin{itemize}
 \item \texttt{Step 1} set currentState = startingState
 \item \texttt{Step 2} Read a character from the input and put it equal to currentCharacter. 
 \item \texttt{Step 3} Concatenate the currentState and the currentCharacter to form a key.
-\item \texttt{Step 4} set currentState = hashmap(key). If there are no more characters goto step 5 else got to step 2.
+\item \texttt{Step 4} set currentState = hashmap(key). If there are no more characters go to step 5 else got to step 2.
 \item \texttt{Step 5} Check if the currentState is indeed a accepting state if so display ``accept'' else ``reject''.
 \end{itemize}
 \section{Test Cases}

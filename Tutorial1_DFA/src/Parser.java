@@ -212,7 +212,7 @@ public class Parser {
 	{
 		String id;
 		if(Token.Types.ID != currentToken.getType()) {
-			System.out.println("Expected: " + Token.Types.SYMBOL + " But found: " +  currentToken.getType());
+			System.out.println("Expected: " + Token.Types.ID + " But found: " +  currentToken.getType());
 			throw new IllegalDFAFormatException();
 		}
 		id = currentToken.getLexeme();

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.8)  9 FEB 2014 18:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.8)  9 FEB 2014 21:37
 entering extended mode
  %&-line parsing enabled.
 **report.tex
@@ -71,7 +71,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 57--62
 
  []
 
-[3] (./report.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--68
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--74
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--89
+
+ []
+
+[3]
+Overfull \hbox (32.72836pt too wide) in alignment at lines 91--104
+ [][][] []
+ []
+
+[4] (./report.aux) ) 
 Here is how much of TeX's memory you used:
  251 strings out of 495061
  2781 string characters out of 1182622
@@ -89,9 +114,9 @@ public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfon
 ts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pf
 b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on report.pdf (3 pages, 118222 bytes).
+Output written on report.pdf (4 pages, 128311 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
+ 55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
