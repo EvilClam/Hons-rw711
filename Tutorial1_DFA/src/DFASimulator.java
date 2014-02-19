@@ -82,7 +82,6 @@ public class DFASimulator {
 				currentState = mapping.get(currentKey);
 			} else {
 				throw new IllegalInputException(DFAInput.substring(i, i + 1));
-				
 			}
 			
 		}

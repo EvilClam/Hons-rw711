@@ -36,10 +36,11 @@ public class TestDFA {
 	
 	@Test
 	public void test3() {
+		
 		DFASimulator dfas = new DFASimulator();
 		try {
 			dfas.setup("test3");	
-			assertEquals("accept", dfas.simulateDFA("bb"));
+			assertEquals("accept", dfas.simulateDFA("bbaabab"));
 		} catch (IOException | IllegalTokenException
 				| IllegalDFAFormatException | IllegalInputException  e) {
 			// TODO Auto-generated catch block
@@ -49,6 +50,7 @@ public class TestDFA {
 	
 	@Test
 	public void test4() {
+		;
 		DFASimulator dfas = new DFASimulator();
 		try {
 			dfas.setup("test4");	
