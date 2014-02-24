@@ -1,0 +1,15 @@
+function startToSTART () {
+    gsub(/start/,"START");
+    print $0 > FILENAME;
+}
+BEGIN {
+
+}
+{
+    startToSTART();
+}
+./Tmp/*
+END {
+}
+
+

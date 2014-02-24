@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.8)  19 FEB 2014 16:24
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.8)  20 FEB 2014 16:27
 entering extended mode
  %&-line parsing enabled.
 **Question4_ShaunS.tex
@@ -390,13 +390,13 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./Question4_ShaunS.au
 x) ) 
 Here is how much of TeX's memory you used:
- 10202 strings out of 495061
- 205649 string characters out of 1182622
- 263986 words of memory out of 3000000
- 13208 multiletter control sequences out of 15000+50000
+ 10203 strings out of 495061
+ 205670 string characters out of 1182622
+ 262957 words of memory out of 3000000
+ 13209 multiletter control sequences out of 15000+50000
  8492 words of font info for 30 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 56i,12n,68p,427b,955s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,12n,68p,427b,953s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/s
 hare/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-
 texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/font
@@ -404,7 +404,7 @@ s/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/publ
 ic/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
 cm/cmss9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.
 pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Question4_ShaunS.pdf (2 pages, 79980 bytes).
+Output written on Question4_ShaunS.pdf (2 pages, 79964 bytes).
 PDF statistics:
  44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

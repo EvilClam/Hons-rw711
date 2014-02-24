@@ -15,7 +15,7 @@ $\delta =$
 \begin{table}[h!t]
 \centering
 \begin{tabular}{c | c c}
- & $a$ & $b$ \\ 
+ & $a$ & $b$ \\
 \hline
 $s$ & $q1$ & $q2$ \\
 $q1$ & $q1$ & $q2$\\
@@ -40,7 +40,7 @@ $F = \{q1, r1\}$
         edge node [above]{a} (2)
     (2) edge [loop above] node [above]{a} (2)
         edge node [right] { b } (3)
-    (3) edge [loop right] node [right]{ a,b } (3);        
+    (3) edge [loop right] node [right]{ a,b } (3);
   \end{tikzpicture}
 \caption{Constains ab as a substring.}
 DFA = \{\{q1, q2, q3\}, \{a, b\}, \{(q1, b) $->$ q1, (q1, a) $->$ q2, (q2, a) $->$ q2, (q2, b) $->$ q3, (q3, b) $->$ q3, (q3, a) $->$ q3\}, q1, \{q3\}\}
@@ -59,7 +59,7 @@ DFA = \{\{q1, q2, q3\}, \{a, b\}, \{(q1, b) $->$ q1, (q1, a) $->$ q2, (q2, a) $-
     (3) edge [loop right] node [right]{a,b} (3);
   \end{tikzpicture}
 \caption{Constains ba as a substring}
-DFA = \{\{q1, q2, q3\}, \{a, b\}, \{(q1, a) $->$ q1, (q1, b) $->$ q2, (q2, b) $->$ q2, (q2, a) $->$ q3, (q3, a) $->$ q3, (q3, b) $->$ q3\}, q1, \{q3\}\}  
+DFA = \{\{q1, q2, q3\}, \{a, b\}, \{(q1, a) $->$ q1, (q1, b) $->$ q2, (q2, b) $->$ q2, (q2, a) $->$ q3, (q3, a) $->$ q3, (q3, b) $->$ q3\}, q1, \{q3\}\}
 \endminipage\hfill
 \end{figure}
 \begin{figure}[H]
@@ -89,7 +89,7 @@ DFA = \{\{q1, q2, q3\}, \{a, b\}, \{(q1, a) $->$ q1, (q1, b) $->$ q2, (q2, b) $-
   \node[main node] (3) [below of = 2]{q3};
   \path[every node/.style={font=\sffamily\small}]
     (1) edge node [above]{a} (2)
-	edge node [below]{b} (3)
+edge node [below]{b} (3)
     (2) edge [below] node [left]{a,b} (3)
     (3) edge [loop below] node [right] {a,b}(3);
   \end{tikzpicture}
@@ -124,7 +124,7 @@ DFA = \{\{q1, q2, q3\}, \{a, b\}, \{(q1, a) $->$ q1, (q1, b) $->$ q2, (q2, b) $-
   \end{tikzpicture}
 \caption{Allowing any strings except a and b}
 \endminipage\hfill
-\end{figure} 
+\end{figure}
 \section*{Question 3a}
 \begin{figure}[H]
 \minipage{0.32\textwidth}
@@ -161,17 +161,17 @@ DFA = \{\{q1, q2, q3\}, \{a, b\}, \{(q1, a) $->$ q1, (q1, b) $->$ q2, (q2, b) $-
 
   \path[every node/.style={font=\sffamily\small}]
     (1) edge node [above]{0} (2)
-	edge node [right]{1} (5)
+edge node [right]{1} (5)
     (2) edge node [above]{0} (3)
-	edge node [right]{1} (6)
+edge node [right]{1} (6)
     (3) edge node [above]{1}(4)
-	edge [loop above] node [above]{0}(3)
+edge [loop above] node [above]{0}(3)
     (4) edge [loop above] node [above]{0}(4)
-	edge [bend left]node [right]{1}(7)
+edge [bend left]node [right]{1}(7)
     (5) edge node[right]{1}(7)
-	edge node [above]{0}(6)
+edge node [above]{0}(6)
     (6) edge [bend right] node [below]{0}(4)
-	edge node [right]{1}(7)
+edge node [right]{1}(7)
     (7) edge [loop left] node [left]{0,1}(7);
   \end{tikzpicture}
 \caption{Contains at least two 0s and at most one 1}

@@ -33,7 +33,7 @@
      (pqrs) edge node [above]{1}(prs)
 	    edge [loop below] node [below]{0}(pqrs)
      (pqs)  edge [bend left] node [left] {1} (prs)
-            edge [loop right] node [right]{0}(pqs)
+            edge  node [right]{0}(pqrs)
      (prs)  edge node [above]{1}(ps)
 	    edge node [left]{0}(pqs)
      (ps)   edge [loop right] node [right]{1}(ps)
@@ -51,7 +51,7 @@
 \{$p, q, r$\} & \{$p, q, r, s$\} & \{$p, r$\} \\
 \{$p, r$\} & \{$p, q, s$\} & \{$p$\} \\
 \{$p, q, r, s$\} & \{$p, q, r, s$\} & \{$p, r, s$\} \\
-\{$p, q, s$\} & \{$p, q, s$\} & \{$p, r, s$\} \\
+\{$p, q, s$\} & \{$p, q, r, s$\} & \{$p, r, s$\} \\
 \{$p, r, s$\} & \{$p, q, s$\} & \{$p, s$\} \\
 \{$p, s$\} & \{$p, q, s$\} & \{$p, s$\} \\
 \end{tabular}
