@@ -1,0 +1,43 @@
+\documentclass[a4paper, 12pt]{article}
+\date{27 February 2014}
+\author{Shaun Schreiber \\ 16715128}
+\title{Tutorial #3}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usetikzlibrary{arrows, automata}
+\begin{document}
+\maketitle
+\section*{Question 3a}
+\begin{theorem}
+L = \{ (ab)^{n}a^{k}| n > k, k \geq 0 \}\\
+\mbox{Let }n = p + 1 \ k = p.\\
+S = (ab)^{p + 1}a^{p}\\
+\mbox{Case 1}\\\\
+S = \underbrace{(ab)^{p}}_{x}\underbrace{(ab)}_{y} \underbrace{(a)^{p}}_{z}\\
+S = xy^{i}z, i \geq 0.\\
+\mbox{Let }i = 0, S = xz = (ab)^{p}a^{p}.\\
+\mbox{Contradiction}
+\\\\
+\mbox{Case 2}\\\\
+S = \underbrace{(ab)^{p}a}_{x}\underbrace{ba}_{y} \underbrace{(a)^{p-1}}_{z}\\
+S = xy^{i}z, i \geq 0.\\
+\mbox{Let }i = 0, S = xz = (ab)^{p}aa^{p - 1} = (ab)^{p}a^{p}.\\
+\mbox{Contradiction}\\\\
+\mbox{Case 3}\\\\
+S = \underbrace{(ab)^{p - 1}}_{x}\underbrace{bab}_{y} \underbrace{a(a)^{p-1}}_{z}\\
+S = xy^{i}z, i \geq 0.\\
+\mbox{Let }i = 2, S = xyyz = (ab)^{p -1 }babbab(a)^{p}\\
+\mbox{Contradiction}\\\\
+\mbox{Case 4}\\\\
+\mbox{Let $y$ only consist of a's}\\
+S = \underbrace{(ab)^{p + 1}}_{x}\underbrace{(a)^{p}}_{y}}\\
+S = xy^{i}, i \geq 0.\\
+S = xyy\\
+\mbox{Contradiction}\\\\
+\end{theorem}
+
+
+
+\section*{Question 3b}
+\end{document}

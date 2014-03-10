@@ -1,0 +1,22 @@
+\documentclass[a4paper, 12pt]{article}
+\date{12 February 2014}
+\author{Shaun Schreiber \\ 16715128}
+\title{Tutorial 3 Theory}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usetikzlibrary{arrows, automata}
+
+\begin{document}
+\maketitle
+
+\section*{Question 3}
+\subsection*{3.a}
+$L = \{(ab)^{n}a^{k}| n > k,\ k\geq 0\}$
+$\\ n = p + 1,\ k = p\ \mbox{and}\ p > 0.$\\
+s = aba; This is a valid string according to to language. Lets divide aba into x, y and x;
+$\overbrace{a}^{x}\underbrace{b}_{y}\overbrace{a}^{z}$. There is no other way to divide s because x $\neq \epsilon$,\\ y $\neq \epsilon$ and x $\neq \epsilon$. xyz $\in L$ but xy$^{i}\mbox{z} \not\in L\ i  \geq 2 $ Contradiction.
+Thus $L$ is not regular.
+\subsection*{3.b}
+$L = \{(a)^{n}a^{k}\ |\ n\neq k\}$
+\end{document}
