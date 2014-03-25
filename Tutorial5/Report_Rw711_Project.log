@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.8)  25 MAR 2014 10:42
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.8)  25 MAR 2014 19:47
 entering extended mode
  %&-line parsing enabled.
 **Report_Rw711_Project.tex
@@ -571,7 +571,11 @@ Try typing  <return>  to proceed.
 
 Package hyperref Info: Option `colorlinks' set `true' on input line 12.
 \c@theorem=\count135
-(./Report_Rw711_Project.aux)
+(./Report_Rw711_Project.aux
+
+LaTeX Warning: Label `figure:Hsingle-cell' multiply defined.
+
+)
 \openout1 = `Report_Rw711_Project.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
@@ -588,8 +592,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
-
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count136
 \scratchdimen=\dimen172
@@ -627,35 +630,2481 @@ LaTeX Info: Redefining \pageref on input line 34.
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\acrfull' on input line 100.
 
-[2]
+
 Overfull \hbox (2.22221pt too wide) in paragraph at lines 113--183
 []$[]$ $[]$ 
  []
 
-
-Overfull \hbox (4.88242pt too wide) in paragraph at lines 247--248
+[2]
+Overfull \hbox (29.39095pt too wide) in paragraph at lines 247--248
 [][] 
  []
 
 
-Overfull \hbox (4.88242pt too wide) in paragraph at lines 305--306
+Overfull \hbox (29.39095pt too wide) in paragraph at lines 305--306
 [][] 
  []
 
 
-Overfull \hbox (4.88242pt too wide) in paragraph at lines 386--387
+Overfull \hbox (29.39095pt too wide) in paragraph at lines 386--387
 [][] 
  []
 
 
-Overfull \hbox (2.22221pt too wide) in paragraph at lines 190--390
+Underfull \hbox (badness 10000) in paragraph at lines 190--390
 []$[]$ $[]$
  []
 
-[3] [4]
+[3]
+Overfull \hbox (2.22221pt too wide) in paragraph at lines 397--521
+[]$[]$ $[]$ 
+ []
+
+[4]
+Underfull \hbox (badness 2990) in paragraph at lines 709--709
+[]\OT1/cmr/m/n/10 Figure 11: []Step 2:
+ []
+
+[5] [6]
+! Undefined control sequence.
+<argument> 0 + \x 
+                  ,0 + \y 
+l.801     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> 0 + \x ,0 + \y 
+                          
+l.801     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.801     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.801     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.801     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.801     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(120) + \x 
+                              }, {2 * sin(120) + \y }
+l.802 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...cos(120) + \x }, {2 * sin(120) + \y 
+                                                  }
+l.802 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.802 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.802 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.802 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.802 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(60) + \x 
+                             }, {2 * sin(60) + \y }
+l.803 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {2 * cos(60) + \x }, {2 * sin(60) + \y 
+                                                  }
+l.803 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.803 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.803 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.803 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.803 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(0) + \x 
+                            }, {2 * sin(0) + \y }
+l.804 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {2 * cos(0) + \x }, {2 * sin(0) + \y 
+                                                }
+l.804 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.804 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.804 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.804 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.804 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-60) + \x 
+                              }, {2 * sin(-60) + \y }
+l.805 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...cos(-60) + \x }, {2 * sin(-60) + \y 
+                                                  }
+l.805 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.805 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.805 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.805 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.805 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-120) + \x 
+                               }, {2 * sin(-120) + \y }
+l.806 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...s(-120) + \x }, {2 * sin(-120) + \y 
+                                                  }
+l.806 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.806 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.806 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.806 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.806 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-180) + \x 
+                               }, {2 * sin(-180) + \y }
+l.807 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...s(-180) + \x }, {2 * sin(-180) + \y 
+                                                  }
+l.807 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.807 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.807 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.807 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.807 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> 0 + \x 
+                  ,0 + \y 
+l.821  \coordinate (Origin) at (0 + \x,0 + \y)
+                                              ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> 0 + \x ,0 + \y 
+                          
+l.821  \coordinate (Origin) at (0 + \x,0 + \y)
+                                              ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.821  \coordinate (Origin) at (0 + \x,0 + \y)
+                                              ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.821  \coordinate (Origin) at (0 + \x,0 + \y)
+                                              ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.821  \coordinate (Origin) at (0 + \x,0 + \y)
+                                              ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.821  \coordinate (Origin) at (0 + \x,0 + \y)
+                                              ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {cos(120) + \x 
+                          }, { sin(120) + \y }
+l.822 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {cos(120) + \x }, { sin(120) + \y 
+                                             }
+l.822 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.822 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.822 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.822 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.822 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(60) + \x 
+                          }, { sin(60) + \y }
+l.823 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(60) + \x }, { sin(60) + \y 
+                                            }
+l.823 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.823 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.823 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.823 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.823 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(0) + \x 
+                         }, { sin(0) + \y }
+l.824 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(0) + \x }, { sin(0) + \y 
+                                          }
+l.824 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.824 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.824 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.824 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.824 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-60) + \x 
+                           }, { sin(-60) + \y }
+l.825 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-60) + \x }, { sin(-60) + \y 
+                                              }
+l.825 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.825 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.825 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.825 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.825 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-120) + \x 
+                            }, { sin(-120) + \y }
+l.826 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-120) + \x }, { sin(-120) + \y 
+                                                }
+l.826 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.826 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.826 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.826 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.826 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-180) + \x 
+                            }, { sin(-180) + \y }
+l.827 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-180) + \x }, { sin(-180) + \y 
+                                                }
+l.827 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.827 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.827 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.827 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.827 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> 0 + \x 
+                  ,0 + \y 
+l.841     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> 0 + \x ,0 + \y 
+                          
+l.841     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.841     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.841     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.841     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.841     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(120) + \x 
+                              }, {2 * sin(120) + \y }
+l.842 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...cos(120) + \x }, {2 * sin(120) + \y 
+                                                  }
+l.842 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.842 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.842 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.842 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.842 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(60) + \x 
+                             }, {2 * sin(60) + \y }
+l.843 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {2 * cos(60) + \x }, {2 * sin(60) + \y 
+                                                  }
+l.843 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.843 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.843 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.843 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.843 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(0) + \x 
+                            }, {2 * sin(0) + \y }
+l.844 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {2 * cos(0) + \x }, {2 * sin(0) + \y 
+                                                }
+l.844 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.844 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.844 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.844 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.844 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-60) + \x 
+                              }, {2 * sin(-60) + \y }
+l.845 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...cos(-60) + \x }, {2 * sin(-60) + \y 
+                                                  }
+l.845 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.845 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.845 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.845 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.845 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-120) + \x 
+                               }, {2 * sin(-120) + \y }
+l.846 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...s(-120) + \x }, {2 * sin(-120) + \y 
+                                                  }
+l.846 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.846 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.846 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.846 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.846 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-180) + \x 
+                               }, {2 * sin(-180) + \y }
+l.847 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...s(-180) + \x }, {2 * sin(-180) + \y 
+                                                  }
+l.847 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.847 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.847 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.847 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.847 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> 0 + \x 
+                  ,0 + \y 
+l.860     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> 0 + \x ,0 + \y 
+                          
+l.860     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.860     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.860     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.860     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.860     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {cos(120) + \x 
+                          }, { sin(120) + \y }
+l.861 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {cos(120) + \x }, { sin(120) + \y 
+                                             }
+l.861 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.861 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.861 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.861 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.861 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(60) + \x 
+                          }, { sin(60) + \y }
+l.862 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(60) + \x }, { sin(60) + \y 
+                                            }
+l.862 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.862 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.862 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.862 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.862 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(0) + \x 
+                         }, { sin(0) + \y }
+l.863 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(0) + \x }, { sin(0) + \y 
+                                          }
+l.863 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.863 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.863 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.863 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.863 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-60) + \x 
+                           }, { sin(-60) + \y }
+l.864 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-60) + \x }, { sin(-60) + \y 
+                                              }
+l.864 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.864 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.864 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.864 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.864 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-120) + \x 
+                            }, { sin(-120) + \y }
+l.865 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-120) + \x }, { sin(-120) + \y 
+                                                }
+l.865 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.865 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.865 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.865 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.865 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-180) + \x 
+                            }, { sin(-180) + \y }
+l.866 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-180) + \x }, { sin(-180) + \y 
+                                                }
+l.866 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.866 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.866 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.866 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.866 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> 0 + \x 
+                  ,0 + \y 
+l.880     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> 0 + \x ,0 + \y 
+                          
+l.880     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.880     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.880     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.880     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.880     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(120) + \x 
+                              }, {2 * sin(120) + \y }
+l.881 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...cos(120) + \x }, {2 * sin(120) + \y 
+                                                  }
+l.881 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.881 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.881 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.881 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.881 ... * cos(120) + \x }, {2 * sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(60) + \x 
+                             }, {2 * sin(60) + \y }
+l.882 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {2 * cos(60) + \x }, {2 * sin(60) + \y 
+                                                  }
+l.882 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.882 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.882 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.882 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.882 ...{2 * cos(60) + \x }, {2 * sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(0) + \x 
+                            }, {2 * sin(0) + \y }
+l.883 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {2 * cos(0) + \x }, {2 * sin(0) + \y 
+                                                }
+l.883 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.883 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.883 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.883 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.883 ... ({2 * cos(0) + \x }, {2 * sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-60) + \x 
+                              }, {2 * sin(-60) + \y }
+l.884 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...cos(-60) + \x }, {2 * sin(-60) + \y 
+                                                  }
+l.884 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.884 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.884 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.884 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.884 ... * cos(-60) + \x }, {2 * sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-120) + \x 
+                               }, {2 * sin(-120) + \y }
+l.885 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...s(-120) + \x }, {2 * sin(-120) + \y 
+                                                  }
+l.885 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.885 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.885 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.885 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.885 ... cos(-120) + \x }, {2 * sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {2 * cos(-180) + \x 
+                               }, {2 * sin(-180) + \y }
+l.886 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> ...s(-180) + \x }, {2 * sin(-180) + \y 
+                                                  }
+l.886 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.886 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.886 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.886 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.886 ... cos(-180) + \x }, {2 * sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> 0 + \x 
+                  ,0 + \y 
+l.899     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> 0 + \x ,0 + \y 
+                          
+l.899     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.899     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.899     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.899     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.899     \coordinate (Origin) at (0 + \x,0 + \y)
+                                                 ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> {cos(120) + \x 
+                          }, { sin(120) + \y }
+l.900 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> {cos(120) + \x }, { sin(120) + \y 
+                                             }
+l.900 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.900 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.900 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.900 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.900 ... at ({cos(120) + \x }, { sin(120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(60) + \x 
+                          }, { sin(60) + \y }
+l.901 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(60) + \x }, { sin(60) + \y 
+                                            }
+l.901 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.901 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.901 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.901 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.901 ...) at ({ cos(60) + \x }, { sin(60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(0) + \x 
+                         }, { sin(0) + \y }
+l.902 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(0) + \x }, { sin(0) + \y 
+                                          }
+l.902 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.902 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.902 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.902 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.902 ...e3) at ({ cos(0) + \x }, { sin(0) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-60) + \x 
+                           }, { sin(-60) + \y }
+l.903 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-60) + \x }, { sin(-60) + \y 
+                                              }
+l.903 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.903 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.903 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.903 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.903 ...at ({ cos(-60) + \x }, { sin(-60) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-120) + \x 
+                            }, { sin(-120) + \y }
+l.904 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-120) + \x }, { sin(-120) + \y 
+                                                }
+l.904 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.904 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.904 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.904 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.904 ... ({ cos(-120) + \x }, { sin(-120) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Undefined control sequence.
+<argument> { cos(-180) + \x 
+                            }, { sin(-180) + \y }
+l.905 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<argument> { cos(-180) + \x }, { sin(-180) + \y 
+                                                }
+l.905 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.905 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.905 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.905 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Missing number, treated as zero.
+<to be read again> 
+                   p
+l.905 ... ({ cos(-180) + \x }, { sin(-180) + \y })
+                                                  ;
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Acrfull' on input line 466.
+(hyperref)                removing `\Acrfull' on input line 924.
 
 
 Package glossaries Warning: \makeglossaries hasn't been used,
@@ -665,17 +3114,17 @@ the glossaries will not be updated.
 Package glossaries Warning: No \printglossary or \printglossaries found.
 This document will not have a glossary.
 
-[5] [6] (./Report_Rw711_Project.aux)
+[7] [8] (./Report_Rw711_Project.aux)
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 14693 strings out of 495061
- 257843 string characters out of 1182622
- 493987 words of memory out of 3000000
- 17524 multiletter control sequences out of 15000+50000
- 10249 words of font info for 37 fonts, out of 3000000 for 9000
+ 14750 strings out of 495061
+ 258746 string characters out of 1182622
+ 522420 words of memory out of 3000000
+ 17561 multiletter control sequences out of 15000+50000
+ 12079 words of font info for 43 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  56i,11n,56p,1090b,746s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
@@ -683,16 +3132,19 @@ re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/
 type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/publi
 c/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
-cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb
-></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
-/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
-onts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Report_Rw711_Project.pdf (6 pages, 202980 bytes).
+cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmib10.p
+fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-t
+exlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/font
+s/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Report_Rw711_Project.pdf (8 pages, 252185 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
- 51 named destinations out of 1000 (max. 500000)
- 277 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 279 PDF objects out of 1000 (max. 8388607)
+ 65 named destinations out of 1000 (max. 500000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
 
