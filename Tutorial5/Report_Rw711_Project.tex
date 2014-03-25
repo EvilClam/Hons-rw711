@@ -182,7 +182,9 @@ This is a basic model and thus only has one collision rule, all other configurat
 \end{minipage} 
 \end{figure}
 \subsubsection{Propagation phase}
-The propagation phase only considers the local neighbours of a cell and not the cell it self. The propagation phase has no effect on the local neighbours of a cell, only on the cell it self. A thing to keep in mind while applying the propagation phase that it will require two states/matrices one that stores the previous results and one that will store the new results.
+The propagation phase only considers the local neighbours of a cell and not the cell it self. The propagation phase has no effect on the local neighbours of a cell, only on the cell it self. The cell's neighbours will be denoted as $n_i$ where $i \in \{0, 1, 2, 3\}$, the cell it self does not count as a neighbour. Neighbour $n_0$ is the top neighbour, neighbour $n_1$ is tot the right, neighbour $n_2$ is below and neighbour $n_3$ is tot the left of the cell. The propagation rules work as follow: If the cell's neighbour $n_i$ has a occupied site $s_{i}$ then the particle in that site moves to the cell's
+site $s_{i}$.
+A thing to keep in mind while applying the propagation phase is, that it will require two states/matrices one that stores the previous results and one that will store the new results.
 
 \begin{figure}[H]
 \begin{minipage}{0.5\textwidth}
@@ -386,12 +388,13 @@ The propagation phase only considers the local neighbours of a cell and not the 
   \label{figure:propagation_HPP2} 
    \end{minipage}
 \end{figure}
-\subsubsection{Boundry conditions}
+\subsubsection{Boundary conditions}
+We will discuss two approaches to handle the boundary condition 
 \subsubsection{Mass and Momentum Densities}
 \subsubsection{Time complexity analysis}
 \subsubsection{Applications}
 \subsubsection{defects}
-Due to 
+deficit is due to the insufficient degree of rotational symmetry of the lattice.
 \subsection{FHP}
 \subsubsection{History}
 The FHP model was proposed by Frisch, Hasslacher and Pomeau in 1986 and received its name from the initials of the authors. This was the first model that showed it is possible for a \acrshort{lgca} to yield the Navier-Stokes equation in the macroscopic limit. This was a big discovery and lead to the rapid development of lattice-gas cellular automata. There where three FHP models developed FHP-I, FHP-II and FHP-III.
