@@ -1,5 +1,18 @@
 \beamer@endinputifotherversion {3.10pt}
 \beamer@sectionintoc {1}{Lattice gas cellular automata}{3}{0}{1}
-\beamer@sectionintoc {2}{Clover}{8}{0}{2}
-\beamer@sectionintoc {3}{Cobertura}{14}{0}{3}
-\beamer@sectionintoc {4}{Compare}{18}{0}{4}
+\beamer@sectionintoc {2}{LGCA in flow modelling}{4}{0}{2}
+\beamer@sectionintoc {3}{HPP}{5}{0}{3}
+\beamer@subsectionintoc {3}{1}{HPP Collision Phase}{6}{0}{3}
+\beamer@subsectionintoc {3}{2}{HPP Propagation Phase}{7}{0}{3}
+\beamer@subsectionintoc {3}{3}{HPP Mass and Momentum densities}{8}{0}{3}
+\beamer@subsectionintoc {3}{4}{HPP Mass and Momentum densities continued}{9}{0}{3}
+\beamer@subsectionintoc {3}{5}{FHP}{10}{0}{3}
+\beamer@subsectionintoc {3}{6}{FHP Collision Phase1}{11}{0}{3}
+\beamer@subsectionintoc {3}{7}{FHP Collision Phase2}{12}{0}{3}
+\beamer@subsectionintoc {3}{8}{FHP Collision Phase3}{13}{0}{3}
+\beamer@subsectionintoc {3}{9}{FHP Collision Phase4}{14}{0}{3}
+\beamer@subsectionintoc {3}{10}{FHP Propagation Phase}{15}{0}{3}
+\beamer@subsectionintoc {3}{11}{FHP Propagation Phase}{16}{0}{3}
+\beamer@subsectionintoc {3}{12}{FHP Propagation Phase}{17}{0}{3}
+\beamer@sectionintoc {4}{Applications}{18}{0}{4}
+\beamer@sectionintoc {5}{Bibliography}{19}{0}{5}
