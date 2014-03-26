@@ -12,7 +12,6 @@
 \hypersetup{colorlinks=true, linkcolor=black}
 
 \newacronym{lgca}{LGCA}{Lattice-Gas Cellular Automata}
-\newacronym{lbm}{LBM}{lattice Boltzmann models}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -34,10 +33,11 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-The use of lattice in flow modelling has become increasingly popular over the last couple of decades and during that time a lot of models have been developed. We'll be investigating three of the more widely used models i.e. FHP and \acrshort{lbm}. The following will be discussed for each model: history, assumptions, the collision rules, the propagation rules, calculation of the mass and momentum density, time complexity analysis, applications, defects and does it obey the desired hydrodynamics equation (Navier Stokes) in the macroscopic limit. 
+The use of lattice in flow modelling has become increasingly popular over the last couple of decades and during that time a lot of models have been developed. We'll be investigating one of the more widely used models i.e. FHP. We will also briefly discuss the HPP model. The following will be discussed for each model: history, assumptions, the collision rules, the propagation rules, calculation of the mass and momentum density, time complexity analysis, applications. 
 \end{abstract}
 \section{Introduction}
-
+\Acrfull{lgca} and lattice Boltzmann methods (LBM) have become widely used for fluid simulations. \Acrfull{lgca}, the predecessor to LBM, is a good starting point to understand how these models function, how they are defined, what they can be used for and why these discrete models lead to the Navier-Stokes equation. In section 2 provides background information on cellular automata and lattice gas cellular automata. In section 3.1 we discuss the HPP model and in section 3.2 we discuss
+the FHP models.
 \section{Background}
 \subsection{Cellular automata}
 Informally a cellular automaton is a system made up of many discrete cells, usually a M by N grid. Each one of these cells can be in one of a finite number of states. Each cell or automaton may only change state on a fixed interval and only according to a fixed set of rules. These rules depend on the cells own value and that of this neighbours. A cellular automaton can formally be defined by
@@ -719,14 +719,36 @@ The mass density for time t and position \textbf{x} is defined as follow:
 \[\rho(t, \textbf{x}) = \sum_{i = 0}^{3} N_{i}(t, \textbf{x}).\]
 The momentum densities for time t and position \textbf{x} is defined as follow:
 \[\boldsymbol{j}(t, \textbf{x}) = \rho\boldsymbol{u} = \sum_{i = 0}^{3} \textbf{c}_{i}N_{i}(t, \textbf{x}).\]
+Given $\rho$ and $\boldsymbol{j}$ the mass and momentum densities we can calculate $N_{i}$ assuming
+a linear relationship
+\[N_{i} = \xi\rho + \eta\textbf{c}_{i}\boldsymbol{j}.\]
+Where $\xi$ and $\eta$ are both constants and can be calculate as follow:
+\[\rho = \sum_{i = 0}^{3} N_{i}
+\]
+\[\rho = \sum_{i = 0}^{3} \xi\rho  + \eta\boldsymbol{j}\sum_{i = 0}^{3} \textbf{c}_{i}
+\]
+\[\rho = 4\xi\rho  + \eta\boldsymbol{j}\boldsymbol{0} 
+\]
+\[\rho = 4\xi\rho
+\]
+which yields $\xi = \frac{1}{4};$
+\[\boldsymbol{j} = \sum_{i = 0}^{3} \textbf{c}_{i}N_{i}\]
+\[\boldsymbol{j} = \xi\rho\sum_{i = 0}^{3} \textbf{c}_{i} + \sum_{i = 0}^{3} \eta\textbf{c}_{i}(\textbf{c}_{i}\boldsymbol{j})\]
+\[\boldsymbol{j} = \boldsymbol{0} + 2\eta\boldsymbol{j}\]
+thus $\eta = \frac{1}{2}$ and therefore
+	\[N_{i} =\frac{1}{4}\rho + \frac{1}{2}\textbf{c}_{i}\boldsymbol{j}.\]
 \subsubsection{Time complexity analysis}
-This is a unoptimized implementation of HHP. It ignores the set-up and boundary costs. Let the lattice size be $n$ by $n$ and the number of occupied sites be l. The collision phase checks each cell to see if a collision has occurred. There are $n^2$ cells and two configurations for each cell. Thus the collision phase has $4n^2$ comparisons.
- The propagation phase checks the 4 neighbours cells to see if any particles will propagate to the current cell which also takes $4n^2$ comparisons. Thus the running time of an unoptimized version of HPP is
- $O(n^2)$.
+The Time complexity analysis was done for an unoptimized implementation of HHP. It ignores the set-up and boundary costs. Let the lattice size be $n$ by $n$ and the number of occupied sites be l. The collision phase checks each cell to see if a collision has occurred. There are $n^2$ cells and two configurations for each cell. Thus the collision phase has $4n^2$ comparisons.
+ The propagation phase checks the 4 neighbours cells to see if any particles will propagate to the current cell which also takes $4n^2$ comparisons. Thus the running time of an unoptimized version of HPP for one simulation is
+ $O(n^2)$ and for $n$ simulations is $O(n^3)$.
 \subsection{FHP}
 \subsubsection{History}
 The FHP model was proposed by Frisch, Hasslacher and Pomeau in 1986 and received its name from the initials of the authors. This was the first model that showed it is possible for a \acrshort{lgca} to yield the Navier-Stokes equation in the macroscopic limit. This was a big discovery and lead to the rapid development of lattice-gas cellular automata. There where three FHP models developed FHP-I, FHP-II and FHP-III.
 The main difference between each of the models are the collision rules that are used.
+Each model contains its predecessors collision rules. So FHP-III contains all of FHP-II's collision rules and FHP-II contains all of FHP-I's collision rules. 
+The FHP model is invariant under rotations by n * $60^{\circ}$ modulo $360^{\circ}$ (hexagonal symmetry).
+
+
 \subsubsection{Model Description}
 The FHP model is a \acrshort{lgca} that make use of a hexagonal lattice.
 Each cell has 6 velocity vectors $\textbf{c}_{i}$ where $i \in \{0, 1, 2, 3, 4, 5\}$ with $60^{\circ}$ between each vector. Also each velocity vector is associated with a site see Fig \ref{figure:Hsingle-cell}. All particles have the same mass m and are indistinguishable. A site can only be in one of two states occupied or empty. A site can not be occupied by more than one particle (\Gls{EP}). It will lead to equilibrium distributions of Fermi-Dirac type for the mean occupation of the cells.%Cite this
@@ -793,8 +815,9 @@ Each cell has 6 velocity vectors $\textbf{c}_{i}$ where $i \in \{0, 1, 2, 3, 4, 
 \noindent The velocity vectors must have a symmetrical property i.e. $\sum_{i = 0}^{5} \textbf{c}_{i} = \textbf{0}$. Also each vector should be of unit length.
 \subsubsection{Collision rules}
 The collision rules for FHP are a lot more complex than HPP. FHP also introduced non-determinism in some of the rules because if this was not done the model would become chiral. This is an undesired property because the hydrodynamic equations do not break parity symmetry.
-Let $s_{i}$ and $c_{i}$ respectively denote the $i$th site and vector of the current cell where $i \in \{0, 1, 2, 3, 4, 5\}$. 
-\paragraph{Rule 1}(2-particle head-on collisions): When two opposite sites are occupied and the rest of the sites are empty,  then a collision has happened. Now are two configurations to choose from. The choice between the two configurations are done randomly with a probability of 0.5. The rule can be defined as: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{j} = 0)\wedge(j \neq i)\wedge(j \neq (i + 3)) \mbox{ for } i,j \in \{0, 1, 2, 3, 4, 5\}\] then with p = 0.5 choose \[ (s_{i - 1} := s_{i}), (s_{i + 2} := s_{i + 3})\]or\[(s_{i + 1} := s_{i}), (s_{i + 4} := s_{i + 3}).\]
+The 2-particle collisions conserve mass, momentum and also an addition property\footnote{Conserves the difference of the number of particles that stream in opposite direction}, the same as in HPP. The addition property has no real world counterpart. This is called a spurious invariant. This spurious invariant is eliminated when 3-particle collisions
+are used. Let $s_{i}$ and $c_{i}$ respectively denote the $i$th site and vector of the current cell where $i \in \{0, 1, 2, 3, 4, 5\}$. 
+\paragraph{Rule 1}(2-particle head-on collisions):\\This collision rule was added in FHP-I. When two opposite sites are occupied and the rest of the sites are empty,  then a collision has happened. Now are two configurations to choose from. The choice between the two configurations are done randomly with a probability of 0.5. The rule can be defined as: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{j} = 0)\wedge(j \neq i)\wedge(j \neq (i + 3)) \mbox{ for } i,j \in \{0, 1, 2, 3, 4, 5\}\] then with p = 0.5 choose \[ (s_{i - 1} := s_{i}), (s_{i + 2} := s_{i + 3})\]or\[(s_{i + 1} := s_{i}), (s_{i + 4} := s_{i + 3}).\]
 \begin{figure}[H]
   \begin{minipage}{0.3\textwidth}
   \begin{tikzpicture}[scale=0.4]
@@ -914,113 +937,649 @@ Let $s_{i}$ and $c_{i}$ respectively denote the $i$th site and vector of the cur
   \end{tikzpicture}
   \caption{Second possible outcome.}
   \end{minipage}
-  \label{figure:Hcollision_FHP1}
+  \label{figure:Hcollision_FHP2}
 \end{figure}
-\paragraph{Rule 2}(symmetric 3-particle collisions):
-When three particles collide at a $120\^{\circ}$, then their directions are rotated by a $180\^{\circ}$. This rule  The rule can be defined as: If \[(s_{i} = s_{i + 2} = s_{i + 4})\wedge(s_{i + 1} = s_{i + 3} = s_{i + 5})\wedge(s_{i} \neq s_{i + 1})\mbox{ for } i \in \{0, 1, 2, 3, 4, 5\}\] then \[ (s_{i} := s_{i + 1}), (s_{i + 2} := s_{i + 3}), (s_{i + 4} := s_{i + 5})\]
-\paragraph{Rule 3}:
-\paragraph{Rule 4}:
-\paragraph{Rule 5}:
-This rule seems dodgy so i left because it is suppose to conserve momentum but 
-\subsubsection{Propagation rules}
-\subsubsection{Mass and Momentum Densities}
-\subsubsection{Time complexity analysis}
-\subsubsection{Applications}
-\subsubsection{defects}
-\subsection{\Acrfull{lbm}}
-\subsubsection{History}
-\subsubsection{Assumptions}
-\subsubsection{Collision rules}
-\subsubsection{Propagation rules}
-\subsubsection{Mass and Momentum Densities}
-\subsubsection{Time complexity analysis}
-\subsubsection{Applications}
-\subsubsection{defects}
+\paragraph{Rule 2}(symmetric 3-particle collisions):\\
+This collision rule was added in FHP-I. When three particles collide at a $120^{\circ}$ their directions are rotated by a $180^{\circ}$. The rule can be defined as: If \[(s_{i} = s_{i + 2} = s_{i + 4})\wedge(s_{i + 1} = s_{i + 3} = s_{i + 5})\wedge(s_{i} \neq s_{i + 1})\mbox{ for } i \in \{0, 1, 2, 3, 4, 5\}\] then if $s_{i} = 0$\[ (s_{i} := s_{i + 1}), (s_{i + 2} := s_{i + 3}), (s_{i + 4} := s_{i + 5})\]
+else\[ (s_{i + 1} := s_{i}), (s_{i + 3} := s_{i + 2}), (s_{i + 5} := s_{i + 4}).\]
 \begin{figure}[H]
+  \begin{minipage}{0.49\textwidth}
   \centering
-  \begin{tikzpicture}[scale=0.65]
-  \foreach \x in {0,4,8}
-	{
-	\foreach \y in {0,4,8}
-		{
-		\ifthenelse{\y = 4 }{
-    \coordinate (Origin) at (0 + \x - 2,0 + \y);
-    \coordinate (site1) at ({2 * cos(120) + \x- 2 }, {2 * sin(120) + \y });
-    \coordinate (site2) at ({2 * cos(60) + \x - 2}, {2 * sin(60) + \y });
-    \coordinate (site3) at ({2 * cos(0) + \x - 2}, {2 * sin(0) + \y });
-    \coordinate (site4) at ({2 * cos(-60) + \x - 2}, {2 * sin(-60) + \y });
-    \coordinate (site5) at ({2 * cos(-120) + \x - 2}, {2 * sin(-120) + \y });
-    \coordinate (site6) at ({2 * cos(-180) + \x- 2 }, {2 * sin(-180) + \y });
-    
-	\draw [ultra thick,-latex,red] (Origin)
-        -- (site1) node [right] {$c_1$};
-    \draw [ultra thick,-latex,red] (Origin)
-        -- (site2) node [right] {$c_2$};
-    \draw [ultra thick,-latex,red] (Origin)
-        -- (site3) node [below] {$c_3$};
-    \draw [ultra thick,-latex,red] (Origin)
-        -- (site4) node [left] {$c_4$};
-    \draw [ultra thick,-latex,red] (Origin)
-        -- (site5) node [left] {$c_5$};
-    \draw [ultra thick,-latex,red] (Origin)
-        -- (site6) node [above] {$c_6$};    
- 	\coordinate (Origin) at (0 + \x- 2,0 + \y);
-    \coordinate (site1) at ({cos(120) + \x- 2 }, { sin(120) + \y });
-    \coordinate (site2) at ({ cos(60) + \x - 2}, { sin(60) + \y });
-    \coordinate (site3) at ({ cos(0) + \x- 2 }, { sin(0) + \y });
-    \coordinate (site4) at ({ cos(-60) + \x - 2}, { sin(-60) + \y });
-    \coordinate (site5) at ({ cos(-120) + \x - 2}, { sin(-120) + \y });
-    \coordinate (site6) at ({ cos(-180) + \x- 2 }, { sin(-180) + \y });
-       
-    \node[draw,circle,inner sep=3pt,fill] at (Origin) {};
-    \node[draw,circle,inner sep=2pt,blue] at (site1) {};
-    \node[draw,circle,inner sep=2pt,blue] at (site2) {};
-    \node[draw,circle,inner sep=2pt,blue] at (site3) {};
-    \node[draw,circle,inner sep=2pt,blue] at (site4) {};
-    \node[draw,circle,inner sep=2pt,blue] at (site5) {};
-    \node[draw,circle,inner sep=2pt,blue] at (site6) {};
-    }
-    %else
-    {
-       \coordinate (Origin) at (0 + \x ,0 + \y);
+  \begin{tikzpicture}[scale=0.4]
+    \coordinate (Origin) at (0 + \x,0 + \y);
     \coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
     \coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
     \coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
     \coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
     \coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
-    \coordinate (site6) at ({2 * cos(-180) + \x}, {2 * sin(-180) + \y });    
+    \coordinate (site6) at ({2 * cos(-180) + \x }, {2 * sin(-180) + \y });
+    
 	\draw [ultra thick,-latex,red] (Origin)
-        -- (site1) node [right] {$c_1$};
+        -- (site1) node [right] {};
     \draw [ultra thick,-latex,red] (Origin)
-        -- (site2) node [right] {$c_2$};
+        -- (site2) node [right] {};
     \draw [ultra thick,-latex,red] (Origin)
-        -- (site3) node [below] {$c_3$};
+        -- (site3) node [below] {};
     \draw [ultra thick,-latex,red] (Origin)
-        -- (site4) node [left] {$c_4$};
+        -- (site4) node [left] {};
     \draw [ultra thick,-latex,red] (Origin)
-        -- (site5) node [left] {$c_5$};
+        -- (site5) node [left] {};
     \draw [ultra thick,-latex,red] (Origin)
-        -- (site6) node [above] {$c_6$};    
- 	\coordinate (Origin) at (0 + \x,0 + \y);
+        -- (site6) node [above] {};    
+ \coordinate (Origin) at (0 + \x,0 + \y);
     \coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
     \coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
-    \coordinate (site3) at ({ cos(0) + \x}, { sin(0) + \y });
+    \coordinate (site3) at ({ cos(0) + \x }, { sin(0) + \y });
     \coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
     \coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
     \coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
        
     \node[draw,circle,inner sep=3pt,fill] at (Origin) {};
     \node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site2) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site4) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site6) {};
+  \end{tikzpicture}
+  \caption{Before collision.}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+  \centering
+    \begin{tikzpicture}[scale=0.4]
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    \coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    \coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    \coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    \coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    \coordinate (site6) at ({2 * cos(-180) + \x }, {2 * sin(-180) + \y });    
+	\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site6) node [above] {};    
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    \coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    \coordinate (site3) at ({ cos(0) + \x }, { sin(0) + \y });
+    \coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    \coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    \coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+       
+    \node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site1) {};
     \node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site3) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site5) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site6) {};
+  \end{tikzpicture}
+  \caption{After collision.}
+  \end{minipage}
+  \label{figure:Hcollision_FHP2}
+\end{figure}
+\paragraph{Rule 3}(4-particle head-on collisions):\\
+This collision rule was added in FHP-II. This rule is similar to that of rule 1 in the sense that their are two possible outcomes with equal probability and both rules work with head-on collisions. The difference is rule 1 only applies for one head-on collision where rule 3 applies for two head-on collisions that are next to each other. The rule can be defined as follow: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{i + 1} = s_{i + 4})\wedge(s_{i + 1} = 1) \mbox{ for } i \in \{0, 1, 2, 3, 4, 5\}\] then with p = 0.5 choose 
+\[ (s_{i - 1} := s_{i}), (s_{i } := s_{i + 1}),(s_{i + 2} := s_{i + 3}), (s_{i + 3} := s_{i + 4})\]
+or
+\[ (s_{i + 1} := s_{i}), (s_{i + 2} := s_{i + 1}),(s_{i + 4} := s_{i + 3}), (s_{i + 5} := s_{i + 4}).\]
+\begin{figure}[H]
+  \begin{minipage}{0.3\textwidth}
+  \begin{tikzpicture}[scale=0.4]
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    \coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    \coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    \coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    \coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    \coordinate (site6) at ({2 * cos(-180) + \x }, {2 * sin(-180) + \y });
+    
+	\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site6) node [above] {};    
+ \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    \coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    \coordinate (site3) at ({ cos(0) + \x }, { sin(0) + \y });
+    \coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    \coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    \coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+       
+    \node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site1) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site2) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site4) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site5) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site6) {};
+  \end{tikzpicture}
+  \caption{Before collision.}
+  \end{minipage}
+  \begin{minipage}{0.3\textwidth}
+    \begin{tikzpicture}[scale=0.4]
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    \coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    \coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    \coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    \coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    \coordinate (site6) at ({2 * cos(-180) + \x }, {2 * sin(-180) + \y });    
+	\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site6) node [above] {};    
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    \coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    \coordinate (site3) at ({ cos(0) + \x }, { sin(0) + \y });
+    \coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    \coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    \coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+       
+    \node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site1) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site3) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site4) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site6) {};
+  \end{tikzpicture}
+  \caption{First possible outcome.}
+  \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+    \begin{tikzpicture}[scale=0.4]
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    \coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    \coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    \coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    \coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    \coordinate (site6) at ({2 * cos(-180) + \x }, {2 * sin(-180) + \y });    
+	\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site6) node [above] {};    
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    \coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    \coordinate (site3) at ({ cos(0) + \x }, { sin(0) + \y });
+    \coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    \coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    \coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+       
+    \node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site2) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site3) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site5) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site6) {};
+  \end{tikzpicture}
+  \caption{Second possible outcome.}
+  \end{minipage}
+  \label{figure:Hcollision_FHP2}
+\end{figure}
+\paragraph{Rule 4}(2-particle head-on collisions with observer):
+This collision rule was added in FHP-II. This rule is similar to rule 2 to but introduces
+a observer particle. The placing of this addition observer particle is not import because as previously stated
+all of the rules are invariant under rotations by n * $60^{\circ}$ modulo $360^{\circ}$(hexagonal symmetry), but observer particle and the open site opposite of the observer particle must remain stationary and unchanged during the collision . The two colliding particles move to the two remaining open positions. The rule can be defined as: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{j} = 1)\wedge(j \neq i)\wedge(j \neq (i + 3))\wedge(j \neq k)\wedge(i \neq k)\wedge(k \neq (i + 3))\]\[\mbox{ for } i,j,k \in \{0, 1, 2, 3, 4, 5\}\] then 
+\[ (s_{k + 3} := s_{i}), (s_{k} := s_{i + 3}).\]
+\begin{figure}[H]
+  \begin{minipage}{0.49\textwidth}
+  \centering
+  \begin{tikzpicture}[scale=0.4]
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    \coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    \coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    \coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    \coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    \coordinate (site6) at ({2 * cos(-180) + \x }, {2 * sin(-180) + \y });
+    
+	\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site6) node [above] {};    
+ \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    \coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    \coordinate (site3) at ({ cos(0) + \x }, { sin(0) + \y });
+    \coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    \coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    \coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+       
+    \node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site2) {};
     \node[draw,circle,inner sep=2pt,blue] at (site3) {};
     \node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site5) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site6) {};
+  \end{tikzpicture}
+  \caption{Before collision.}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+  \centering
+    \begin{tikzpicture}[scale=0.4]
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    \coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    \coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    \coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    \coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    \coordinate (site6) at ({2 * cos(-180) + \x }, {2 * sin(-180) + \y });    
+	\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {};
+    \draw [ultra thick,-latex,red] (Origin)
+        -- (site6) node [above] {};    
+    \coordinate (Origin) at (0 + \x,0 + \y);
+    \coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    \coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    \coordinate (site3) at ({ cos(0) + \x }, { sin(0) + \y });
+    \coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    \coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    \coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+       
+    \node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site1) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    \node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site4) {};
     \node[draw,circle,inner sep=2pt,blue] at (site5) {};
-    \node[draw,circle,inner sep=2pt,blue] at (site6) {};
+    \node[draw,circle,inner sep=2pt,fill,blue] at (site6) {};
+  \end{tikzpicture}
+  \caption{After collision.}
+  \end{minipage}
+  \label{figure:Hcollision_FHP2}
+\end{figure}
+\paragraph{Rule 5}(rest particle (circle) collisions):\\
+This collision rule was added in FHP-III.
+This collision rule introduces rest particles into
+a \acrshort{lgca}. We will not be using this rule or discuss it because I do not agree that the rule conserves momentum.
+\subsubsection{Propagation rules}
+The propagation phase only considers the local neighbours of a cell and not the cell it self. The propagation phase has no effect on the local neighbours of a cell, only on the cell it self. The cell's neighbours will be denoted as $n_i$ where $i \in \{0, 1, 2, 3, 4, 5\}$, the cell it self does not count as a neighbour. Neighbour $n_0$ is the top left neighbour and continues clockwise. The propagation rules work as follow: If the cell's neighbour $n_i$ has a occupied site $s_{i}$ then the particle in that site moves to the current cell's
+site $s_{i}$.
+\begin{figure}[H]
+  \begin{minipage}{0.49\textwidth}
+  \begin{tikzpicture}[scale=0.45]
+  \foreach \x in {0,4,8}
+	{
+	\foreach \y in {0,4,8}
+		{
+		\ifthenelse{\y = 4 }{
+    			\coordinate (Origin) at (0 + \x - 2,0 + \y);
+    			\coordinate (site1) at ({2 * cos(120) + \x- 2 }, {2 * sin(120) + \y });
+    			\coordinate (site2) at ({2 * cos(60) + \x - 2}, {2 * sin(60) + \y });
+    			\coordinate (site3) at ({2 * cos(0) + \x - 2}, {2 * sin(0) + \y });
+    			\coordinate (site4) at ({2 * cos(-60) + \x - 2}, {2 * sin(-60) + \y });
+    			\coordinate (site5) at ({2 * cos(-120) + \x - 2}, {2 * sin(-120) + \y });
+    			\coordinate (site6) at ({2 * cos(-180) + \x- 2 }, {2 * sin(-180) + \y });
+    
+			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site1) node [right] {$c_1$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site2) node [right] {$c_2$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site3) node [below] {$c_3$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site4) node [left] {$c_4$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site5) node [left] {$c_5$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site6) node [above] {$c_6$};    
+ 			\coordinate (Origin) at (0 + \x- 2,0 + \y);
+   			\coordinate (site1) at ({cos(120) + \x- 2 }, { sin(120) + \y });
+   	 		\coordinate (site2) at ({ cos(60) + \x - 2}, { sin(60) + \y });
+    			\coordinate (site3) at ({ cos(0) + \x- 2 }, { sin(0) + \y });
+    			\coordinate (site4) at ({ cos(-60) + \x - 2}, { sin(-60) + \y });
+    			\coordinate (site5) at ({ cos(-120) + \x - 2}, { sin(-120) + \y });
+    			\coordinate (site6) at ({ cos(-180) + \x- 2 }, { sin(-180) + \y });
+       
+       		\ifthenelse{\x = 4 }{
+    				\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    				\node[draw,circle,inner sep=2pt,fill,blue] at (site1) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    				\node[draw,circle,inner sep=2pt,fill,blue] at (site3) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    				\node[draw,circle,inner sep=2pt,fill,blue] at (site5) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site6) {};
+    			}%else
+    			{
+    				\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site6) {};
+    			}
+    }
+    %else
+    {
+       	\coordinate (Origin) at (0 + \x ,0 + \y);
+    		\coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    		\coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    		\coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    		\coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    		\coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    		\coordinate (site6) at ({2 * cos(-180) + \x}, {2 * sin(-180) + \y });    
+		\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {$c_1$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {$c_2$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {$c_3$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {$c_4$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {$c_5$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        	-- (site6) node [above] {$c_6$};    
+ 		\coordinate (Origin) at (0 + \x,0 + \y);
+    		\coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    		\coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    		\coordinate (site3) at ({ cos(0) + \x}, { sin(0) + \y });
+    		\coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    		\coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    		\coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+       
+    		\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site6) {};
     }
     }
  }
   \end{tikzpicture}
-  \caption{Here is an example of a single hexagonal cell with 6 velocity vectors and 6 empty sites.}
+  \caption{Before collision phase}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \begin{tikzpicture}[scale=0.45]
+  \foreach \x in {0,4,8}
+	{
+	\foreach \y in {0,4,8}
+		{
+		\ifthenelse{\y = 4 }{
+    			\coordinate (Origin) at (0 + \x - 2,0 + \y);
+    			\coordinate (site1) at ({2 * cos(120) + \x- 2 }, {2 * sin(120) + \y });
+    			\coordinate (site2) at ({2 * cos(60) + \x - 2}, {2 * sin(60) + \y });
+    			\coordinate (site3) at ({2 * cos(0) + \x - 2}, {2 * sin(0) + \y });
+    			\coordinate (site4) at ({2 * cos(-60) + \x - 2}, {2 * sin(-60) + \y });
+    			\coordinate (site5) at ({2 * cos(-120) + \x - 2}, {2 * sin(-120) + \y });
+    			\coordinate (site6) at ({2 * cos(-180) + \x- 2 }, {2 * sin(-180) + \y });
+    
+			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site1) node [right] {$c_1$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site2) node [right] {$c_2$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site3) node [below] {$c_3$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site4) node [left] {$c_4$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site5) node [left] {$c_5$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site6) node [above] {$c_6$};    
+ 			\coordinate (Origin) at (0 + \x- 2,0 + \y);
+   			\coordinate (site1) at ({cos(120) + \x- 2 }, { sin(120) + \y });
+   	 		\coordinate (site2) at ({ cos(60) + \x - 2}, { sin(60) + \y });
+    			\coordinate (site3) at ({ cos(0) + \x- 2 }, { sin(0) + \y });
+    			\coordinate (site4) at ({ cos(-60) + \x - 2}, { sin(-60) + \y });
+    			\coordinate (site5) at ({ cos(-120) + \x - 2}, { sin(-120) + \y });
+    			\coordinate (site6) at ({ cos(-180) + \x- 2 }, { sin(-180) + \y });
+       
+       		\ifthenelse{\x = 4 }{
+    				\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    				\node[draw,circle,inner sep=2pt,fill,blue] at (site2) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    				\node[draw,circle,inner sep=2pt,fill,blue] at (site4) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    				\node[draw,circle,inner sep=2pt,fill,blue] at (site6) {};
+    			}%else
+    			{
+    				\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site6) {};
+    			}
+    }
+    %else
+    {
+       	\coordinate (Origin) at (0 + \x ,0 + \y);
+    		\coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    		\coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    		\coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    		\coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    		\coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    		\coordinate (site6) at ({2 * cos(-180) + \x}, {2 * sin(-180) + \y });    
+		\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {$c_1$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {$c_2$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {$c_3$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {$c_4$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {$c_5$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        	-- (site6) node [above] {$c_6$};    
+ 		\coordinate (Origin) at (0 + \x,0 + \y);
+    		\coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    		\coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    		\coordinate (site3) at ({ cos(0) + \x}, { sin(0) + \y });
+    		\coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    		\coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    		\coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+       
+    		\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    		\node[draw,circle,inner sep=2pt,blue] at (site6) {};
+    }
+    }
+ }
+  \end{tikzpicture}
+  \caption{After collision phase and before propagation phase.}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+      \begin{tikzpicture}[scale=0.45]
+  \foreach \x in {0,4,8}
+	{
+	\foreach \y in {0,4,8}
+		{
+		\ifthenelse{\y = 4 }{
+    			\coordinate (Origin) at (0 + \x - 2,0 + \y);
+    			\coordinate (site1) at ({2 * cos(120) + \x- 2 }, {2 * sin(120) + \y });
+    			\coordinate (site2) at ({2 * cos(60) + \x - 2}, {2 * sin(60) + \y });
+    			\coordinate (site3) at ({2 * cos(0) + \x - 2}, {2 * sin(0) + \y });
+    			\coordinate (site4) at ({2 * cos(-60) + \x - 2}, {2 * sin(-60) + \y });
+    			\coordinate (site5) at ({2 * cos(-120) + \x - 2}, {2 * sin(-120) + \y });
+    			\coordinate (site6) at ({2 * cos(-180) + \x- 2 }, {2 * sin(-180) + \y });
+    
+			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site1) node [right] {$c_1$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site2) node [right] {$c_2$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site3) node [below] {$c_3$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site4) node [left] {$c_4$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site5) node [left] {$c_5$};
+    			\draw [ultra thick,-latex,red] (Origin)
+        		-- (site6) node [above] {$c_6$};    
+ 			\coordinate (Origin) at (0 + \x- 2,0 + \y);
+   			\coordinate (site1) at ({cos(120) + \x- 2 }, { sin(120) + \y });
+   	 		\coordinate (site2) at ({ cos(60) + \x - 2}, { sin(60) + \y });
+    			\coordinate (site3) at ({ cos(0) + \x- 2 }, { sin(0) + \y });
+    			\coordinate (site4) at ({ cos(-60) + \x - 2}, { sin(-60) + \y });
+    			\coordinate (site5) at ({ cos(-120) + \x - 2}, { sin(-120) + \y });
+    			\coordinate (site6) at ({ cos(-180) + \x- 2 }, { sin(-180) + \y });
+       		
+       		\ifthenelse{\x = 0 }{
+    				\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    				\node[draw,circle,inner sep=2pt,fill,blue] at (site6) {};
+    					
+    			}%else
+    			{
+    				\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site6) {};
+    			}
+    }
+    %else
+    {
+       	\coordinate (Origin) at (0 + \x ,0 + \y);
+    		\coordinate (site1) at ({2 * cos(120) + \x }, {2 * sin(120) + \y });
+    		\coordinate (site2) at ({2 * cos(60) + \x }, {2 * sin(60) + \y });
+    		\coordinate (site3) at ({2 * cos(0) + \x }, {2 * sin(0) + \y });
+    		\coordinate (site4) at ({2 * cos(-60) + \x }, {2 * sin(-60) + \y });
+    		\coordinate (site5) at ({2 * cos(-120) + \x }, {2 * sin(-120) + \y });
+    		\coordinate (site6) at ({2 * cos(-180) + \x}, {2 * sin(-180) + \y });    
+		\draw [ultra thick,-latex,red] (Origin)
+        -- (site1) node [right] {$c_1$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site2) node [right] {$c_2$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site3) node [below] {$c_3$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site4) node [left] {$c_4$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        -- (site5) node [left] {$c_5$};
+    		\draw [ultra thick,-latex,red] (Origin)
+        	-- (site6) node [above] {$c_6$};    
+ 		\coordinate (Origin) at (0 + \x,0 + \y);
+    		\coordinate (site1) at ({cos(120) + \x }, { sin(120) + \y });
+    		\coordinate (site2) at ({ cos(60) + \x }, { sin(60) + \y });
+    		\coordinate (site3) at ({ cos(0) + \x}, { sin(0) + \y });
+    		\coordinate (site4) at ({ cos(-60) + \x }, { sin(-60) + \y });
+    		\coordinate (site5) at ({ cos(-120) + \x }, { sin(-120) + \y });
+    		\coordinate (site6) at ({ cos(-180) + \x }, { sin(-180) + \y });
+              		
+         \ifthenelse{\x = 4 \AND \y = 0}{
+    				\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    				\node[draw,circle,inner sep=2pt,fill,blue] at (site4) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    				\node[draw,circle,inner sep=2pt,blue] at (site6) {};
+    			}%else
+    			{
+    				\ifthenelse{\x = 4  \AND \y = 8}{
+    					\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    					\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    					\node[draw,circle,inner sep=2pt,fill,blue] at (site2) {};
+    					\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    					\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    					\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    					\node[draw,circle,inner sep=2pt,blue] at (site6) {};	
+    				}%else
+    				{
+    						\node[draw,circle,inner sep=3pt,fill] at (Origin) {};
+    						\node[draw,circle,inner sep=2pt,blue] at (site1) {};
+    						\node[draw,circle,inner sep=2pt,blue] at (site2) {};
+    						\node[draw,circle,inner sep=2pt,blue] at (site3) {};
+    						\node[draw,circle,inner sep=2pt,blue] at (site4) {};
+    						\node[draw,circle,inner sep=2pt,blue] at (site5) {};
+    						\node[draw,circle,inner sep=2pt,blue] at (site6) {};
+    				}
+    			}
+    		}
+    }
+ }
+  \end{tikzpicture}
+  \caption{After propagation phase.}
+  \end{minipage}
+ 
   \label{figure:Hsingle-cell}
 \end{figure}
+\subsubsection{Time complexity analysis}
+The Time complexity analysis was done for an unoptimized implementation of FHP-II. This is just to give a basic idea of the possible time complexity and is not the optimal solution. Assume the size of the lattice is $n$ by $n$ and that initialization and border collision costs are ignored. The number of comparisons that are made in the collision phase is $16n^{2}$. The number of comparisons that are made in the propagation phase is $6n^{2}$.
+Thus the running time of an unoptimized version of FHP-II model for one simulation is
+ $O(n^2)$ and for $n$ simulations is $O(n^3)$
+\subsubsection{Applications}
+\begin{itemize}
+\item Simulating rain in games.
+\item Simulating rivers in games.
+\item 2D fluid simulations.
+\item Network congestion simulation. 
+\end{itemize}
+\subsubsection{defects}
+The hexagonal shape is hard to work with.
+There is no way to detect all of the spurious invariants of a given
+lattice-gas cellular automata model. It was show that all FHP models
+have non-local spurious invariants.
+\begin{thebibliography}{9}
+\bibitem{ref1}Wolf-Gladrow, D. A. 2000. Lattice-gas cellular automata and lattice Boltzmann models. New York: Springer.
+\end{thebibliography}
 \end{document}
