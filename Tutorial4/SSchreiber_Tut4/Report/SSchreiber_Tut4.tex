@@ -1,0 +1,269 @@
+\documentclass[a4paper, 10pt]{article}
+\title{RW711\\Cellular Automata Framework}
+\author{Shaun Schreiber}
+\date{\today}
+\usepackage{graphicx,color}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,shadows}
+\usepackage{float}
+\makeindex
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Problem Statement}
+\label{ps}
+The purpose of this assignment is to design a framework that can simulate two dimensional cellular automata. This framework must be general enough such that it can handle any two dimensional cellular automaton. An implementation of Conway's Game of Life using this framework must also be handed in.
+\section{Design}
+\label{design}
+The framework is divided into 3 sections, cell \S\ref{dcell}, lattice \S\ref{dlattice} and
+cellular automata \S\ref{dca}.
+\subsection{Cell}
+\label{dcell}
+The cell basis element of the framework. Each cell will define its own set of rules. This was done to ensure that hybrid cellular automata can be implemented on this framework.
+Each cell must also define what its neighbourhood is. This was done for experimental reasons. Each cell is only allowed to have one value. Each cell will determine its next value by applying its rules. Each cell will be able to return its current value, its next value and an array of indices, each index is not the actual index of each neighbour, but the offset from the current cell, identifying it neighbours.
+\subsection{Lattice}
+\label{dlattice}
+A lattice consists of a grid of cells. The framework will allow a lattice of any dimension. The lattice will be able to update itself, by iterating through the grid of cells and applying their individual rules. A lattice will be able to return an instance of itself, a cell given a certain index and its dimensions.
+\subsection{Cellular Automata}
+\label{dca}
+The task of this section is to simulate any give cellular automata that abides by the guide lines and functionality stated in sections \S\ref{dcell} and \S\ref{dlattice}.
+This section will be able to retrieve the next step\footnote{Step here refers to the new lattice that is formed after each cell has determined their new value.} for a given lattice. It will be able to start and stop the simulation of a cellular automaton.
+It will include a mechanism that will allow other objects to attach to the current cellular automaton and be notified when the the current lattice has changed or updated. This mechanism must allow other objects to detach from the current cellular automaton. It will also return the current state of the lattice before an update is applied.
+\section{Implementation}
+\label{impl}
+Cell and lattice both specify a criteria to which some class must abide for the cellular automata abstract class to use it, because of this Cell and lattice where both made interfaces.
+\subsection{Cell}
+\label{icell}
+The interface of cell abides to all of the specifications set in the design section \ref{dcell}. This makes it easy to add new cells with different rules and neighbourhoods.
+\begin{figure}[!ht]
+\center
+\tikzstyle{class}=[
+    rectangle,
+    draw=black,
+    text centered,
+    anchor=north,
+    text=black,
+    text width=8cm,
+    shading=axis,
+    bottom color={rgb:red,222;green,222;blue,222},top color=white,shading angle=45]
+
+\begin{tikzpicture}[node distance=2cm]
+    \node (Item) [class, rectangle split, rectangle split parts=2]
+    {
+        \textbf{Interface\\ Cell$<$Type$>$}
+        \nodepart{second}+getNeighbours(): ArrayList$<$Integer[]$>$\\
+        \hspace{-0.4cm}+applyRules(Cell$<$Type$>$[] neighbours): Type\\
+        +getValue(): Type\\
+        +setValue(Type value): void
+       
+    }; 
+\end{tikzpicture}
+\caption{Cell class diagram}
+\end{figure}
+\begin{itemize}
+\item \texttt{Getneigbours} returns a list of array indices. These indices are the offsets of the neighbours from the current position.
+\item \texttt{ApplyRules} applies the rules of the current cell and return its new value.
+\item \texttt{GetValue} returns the current value of the cell.
+\item \texttt{SetValue} stores the given value as the new value of the cell.
+\end{itemize}
+.
+\subsection{Lattice}
+\label{ilattice}
+The interface of cell abides to all of the specifications set in the design section \ref{dcell}. This makes it easy to add new cells with different rules and neighbourhoods.
+\begin{figure}[!ht]
+\center
+\tikzstyle{class}=[
+    rectangle,
+    draw=black,
+    text centered,
+    anchor=north,
+    text=black,
+    text width=8cm,
+    shading=axis,
+    bottom color={rgb:red,222;green,222;blue,222},top color=white,shading angle=45]
+
+\begin{tikzpicture}[node distance=2cm]
+    \node (Item) [class, rectangle split, rectangle split parts=2]
+    {
+        \textbf{Interface\\ Lattice$<$Type$>$}
+        \nodepart{second}+init():void\\
+           +updateLattice(): void\\
+        +getLattice(): Type\\
+        +getCell(int[] pos): Cell$<$?$>$\\
+        +setDimensions(int[] dim): void\\
+        +getDimensions():int[]\\
+       
+    }; 
+\end{tikzpicture}
+\caption{Lattice class diagram}
+\end{figure}
+\begin{itemize}
+\item \texttt{Init} Initializes the current lattice.
+\item \texttt{UpdateLattice} Iterates through all the cells contained by the lattice and apply their rules to determine each cells new value. All of the new values are stored replacing the old values.
+\item \texttt{GetCell} returns the cell at the given position.
+\item \texttt{SetDimensions} stores the given dimensions as the new dimensions of the current lattice.
+\item \texttt{GetDimensions} returns the dimensions of the current lattice.
+\end{itemize}
+\subsection{Cellular Automata}
+\label{ica}
+\begin{figure}[!ht]
+\center
+\tikzstyle{class}=[
+    rectangle,
+    draw=black,
+    text centered,
+    anchor=north,
+    text=black,
+    text width=8cm,
+    shading=axis,
+    bottom color={rgb:red,222;green,222;blue,222},top color=white,shading angle=45]
+
+\begin{tikzpicture}[node distance=2cm]
+    \node (Item) [class, rectangle split, rectangle split parts=2]
+    {
+        \textbf{CellularAutomaton}
+        \nodepart{second}+initCA(Lattice lat):void\\
+           +nextLattice(): void\\
+        -update(Lattice lattice): void\\
+        +getLattice() : Lattice\\
+        +start(): void\\
+        +stop(): void\\
+        +addListener(CAUpdateListener listen): void\\
+        +removeListener(Object o): void\\
+    }; 
+\end{tikzpicture}
+\caption{Cellular Automata abstract class diagram}
+\end{figure}
+\begin{itemize}
+\item \texttt{InitCA} Initializes the lattice and set the isRunning boolean false.
+\item \texttt{NextLattice} Stores the new lattice after the current lattice was advanced by one tick.
+\item \texttt{Update} this function runs through a list of listeners and invokes each listeners update method.
+\item \texttt{Start} changes the value of isRunning to true thus allowing a nextLattice function call to update the lattice.
+\item \texttt{Stop} changes the value of isRunning to false thus stopping a nextLattice  function call to update the lattice.
+\item \texttt{AddListener} adds a CAUpdateListener to the list of listeners.
+\item \texttt{removeListener} removes the first occurrence of given object from the list.
+\end{itemize}
+\section{CAUpdateListener}
+\begin{figure}[!ht]
+\center
+\tikzstyle{class}=[
+    rectangle,
+    draw=black,
+    text centered,
+    anchor=north,
+    text=black,
+    text width=8cm,
+    shading=axis,
+    bottom color={rgb:red,222;green,222;blue,222},top color=white,shading angle=45]
+
+\begin{tikzpicture}[node distance=2cm]
+    \node (Item) [class, rectangle split, rectangle split parts=2]
+    {
+        \textbf{Interface\\ CAUpdateListener}
+        \nodepart{second}+update(Lattice lat):void\\
+       
+    }; 
+\end{tikzpicture}
+\caption{CAUpdateListener class diagram}
+\end{figure}
+\begin{itemize}
+\item \texttt{Update} is called when a lattice is successfully updated to the next tik.
+\end{itemize}
+\subsection{Game Of Life(2D)}
+\label{gol2}
+ Conway's Game of Life was implemented with the basic rules, but making use of wrap around at the borders and not padding it with zero's. An additional function was added to the game of life lattice. This function was used to read a cellular automaton from a file.The GUI can  display and simulate a given cellular automaton. Also the GUI can pause, edit and continue.
+\subsection{Game of Life(3D)}
+\label{gol3}
+cellular automaton
+ Conway's Game of Life was implemented with the rules B5/S4,5\footnote{The B5 means that a dead cell will be revived if exactly 5 neighbours are alive an the S4,5 means the between 4 and 5 neighbours, inclusive, a living cell my stay alive.} and making use of wrap around at the borders and not padding it with zero's. An additional function was added to the 3D game of life lattice. This function was used to read a cellular automaton from a file. The GUI can only display and simulate a cellular automaton.
+\section{Testing(2D)}
+\subsection{Test1}
+Reason: This testcase tests to see if the wrap around works.\\
+input:\\
+7 7\\
+0000000\\
+0111000\\
+0001000\\
+0010000\\
+0000000\\
+0000000\\
+0000000\\
+pass: True
+\subsection{Test2}
+Reason: This testcase tests will to see if the rules work properly.\\
+input:\\
+11 11\\
+00000000000\\
+00000000000\\
+00000000000\\
+00000000000\\
+00001110000\\
+00011011000\\
+00001110000\\
+00000000000\\
+00000000000\\
+00000000000\\
+00000000000\\
+pass: True
+\subsection{Test3}
+Reason: This testcase tests will to see if the rules are properly applied.\\
+input:\\
+3 3
+000\\
+000\\
+000\\
+pass: True
+\subsection{Test4}
+Reason: This testcase tests will to see if the rules are properly applied.\\
+input:\\
+3 3
+111\\
+111\\
+111\\
+pass: True
+\subsection{Test5}
+Reason: This testcase tests to see if the wrap around works.\\
+input:\\
+15 17\\
+00000000000000000\\
+00000000000000000\\
+00000000000000000\\
+00000000000000000\\
+00000000000000000\\
+00000000000000000\\
+00000000000000000\\
+00000000000000000\\
+00001111000000000\\
+00010001000000000\\
+00000001000000000\\
+00010010000000000\\
+00000000000000000\\
+00000000000000000\\
+00000000000000000\\
+pass: True
+\subsection{Test6}
+Reason: This testcase tests will to see if the rules work properly. This is a long repeating pattern.\\
+input:\\
+11 11\\
+00000000000\\
+00000000000\\
+00000000000\\
+00000000000\\
+00001110000\\
+00010000000\\
+00010000000\\
+00010000000\\
+00000000000\\
+00000000000\\
+00000000000\\
+pass: True
+\section{Testing(3D)}
+There are tests for the 3D game of life but these tests are fairly large thus are omitted from the document.
+\begin{thebibliography}{99}
+\bibitem{one}jMonkeyEngine.org | jMonkeyEngine Community
+
+In-text: (Hub.jmonkeyengine.org, 2014)
+
+Bibliography: Hub.jmonkeyengine.org. 2014. jMonkeyEngine.org | jMonkeyEngine Community. [online] Available at: http://hub.jmonkeyengine.org/ [Accessed: 10 Mar 2014].
+\end{thebibliography}
+\end{document}

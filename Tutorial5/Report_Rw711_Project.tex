@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,12pt]{article}
 
 \usepackage{amsmath}
 \usepackage{float}
@@ -36,11 +36,11 @@
 The use of lattice in flow modelling has become increasingly popular over the last couple of decades and during that time a lot of models have been developed. We'll be investigating one of the more widely used models i.e. FHP. We will also briefly discuss the HPP model. The following will be discussed for each model: history, assumptions, the collision rules, the propagation rules, calculation of the mass and momentum density, time complexity analysis, applications. 
 \end{abstract}
 \section{Introduction}
-\Acrfull{lgca} and lattice Boltzmann methods (LBM) have become widely used for fluid simulations. \Acrfull{lgca}, the predecessor to LBM, is a good starting point to understand how these models function, how they are defined, what they can be used for and why these discrete models lead to the Navier-Stokes equation. In section 2 provides background information on cellular automata and lattice gas cellular automata. In section 3.1 we discuss the HPP model and in section 3.2 we discuss
+\Acrfull{lgca} and lattice Boltzmann methods (LBM) have become widely used for fluid simulations. \Acrfull{lgca}, the predecessor to LBM, is a good starting point to understand how these models function, how they are defined, what they can be used for and why these discrete models lead to the Navier-Stokes equation. Section 2 provides background information on cellular automata and lattice gas cellular automata. In section 3.1, we discuss the HPP model and in section 3.2 we discuss
 the FHP models.
 \section{Background}
 \subsection{Cellular automata}
-Informally a cellular automaton is a system made up of many discrete cells, usually a M by N grid. Each one of these cells can be in one of a finite number of states. Each cell or automaton may only change state on a fixed interval and only according to a fixed set of rules. These rules depend on the cells own value and that of this neighbours. A cellular automaton can formally be defined by
+Informally a cellular automaton is a system made up of many discrete cells, usually a M by N grid. Each one of these cells can be in one of a finite number of states. Each cell or automaton may only change state on a fixed interval and only according to a fixed set of rules. These rules depend on the cells own value and that of its neighbours. A cellular automaton can formally be defined by the following.
 \begin{definition}
 A cellular automaton is a 4-tuple, $C = \{S,s_{0},f,G\}$, where
 \begin{enumerate}
@@ -54,8 +54,8 @@ Two popular neighbourhoods are the von Neumann and Moore.
 The von Neumann neighbourhood for range r can be defined by \[ G_{(x_{0}, y_{0})} = \{(x, y): \left|x - x_{0} \right| + \left|y - y_{0}\right| \leq r\}.\]
 The Moore neighbourhood for range r can be defined by \[ G_{(x_{0}, y_{0})} = \{(x, y): \left|x - x_{0}\right| \leq r, \left|y - y_{0}\right| \leq r \}.\]
 A popular example of a cellular automata that makes use of a Moore neighbourhood with r = 1 is ``Conway's game of life''.
-\subsection{Lattice gas cellular automata}
-Lattice gas cellular automata is a cellular automata where the transition functions $f$ is split into two phases i.e. propagation phase and collision phase. Also each cell has n number of local sites, where n is the number of directly connected neighbours. Each site is associated with a specific velocity vector $\textbf{c}_{i}$ $( i = 0,1,2,\dots,n)$. Velocity vectors are the edge's between cells and their neighbours and is of unit length. Sites may be empty or occupied by at most one particle. This \gls{EP} is characteristic for all lattice-gas cellular automata.   
+\subsection{Lattice-gas cellular automata}
+Lattice-gas cellular automata is a cellular automata where the transition functions $f$ is split into two phases i.e. propagation phase and collision phase. Also each cell has n number of local sites, where n is the number of directly connected neighbours. Each site is associated with a specific velocity vector $\textbf{c}_{i}$ $( i = 0,1,2,\dots,n)$. Velocity vectors are the edge's between cells and their neighbours and is of unit length. Sites may be empty or occupied by at most one particle. This \gls{EP} is characteristic for all lattice-gas cellular automata.   
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[scale=0.65]
@@ -93,7 +93,7 @@ Lattice gas cellular automata is a cellular automata where the transition functi
   \caption{Here is an example of a single cell with 4 velocity vectors and 4 empty sites.}
   \label{figure:single-cell}
 \end{figure}
-\noindent As previously mentioned the transition function $f$ is divided into two phases propagation and collision.
+\noindent As previously mentioned the transition function $f$ is divided into two phases, propagation and collision.
 The collision phase only applies rules that act on a single cell i.e. the local sites.
 The propagation phase on the other hand applies rules between cells. What those rules are will vary between implementations and will be discussed later.
 
@@ -104,9 +104,9 @@ The HPP model was proposed by Hardy, de Pazzis and Pomeau in 1973.
 This was the first \acrshort{lgca} model and received its name from the initials of the authors. It is the simplest \acrshort{lgca} model and is only mentioned for its historical importance and not for its application because it does not lead to the Navier-Stokes equation in the macroscopic limit, this is due to the insufficient degree of rotational symmetry of the lattice. 
 \subsubsection{Model Description}
 The HPP model is a \acrshort{lgca} that make use of a square lattice.
-Each cell has 4 velocity vectors $\textbf{c}_{i}$ where $i \in \{0, 1, 2, 3\}$. Each velocity vector is associated with one site, see Fig \ref{figure:single-cell}. All particles have the same mass m and are indistinguishable. A site can only be in one of two states occupied or empty. A site can not be occupied by more than one particle (\Gls{EP}). It will lead to equilibrium distributions of Fermi-Dirac type for
+Each cell has 4 velocity vectors $\textbf{c}_{i}$ where $i \in \{0, 1, 2, 3\}$. Each velocity vector is associated with one site, see Fig \ref{figure:single-cell}. All particles have the same mass m and are indistinguishable. A site can only be in one of two states, occupied or empty. A site can not be occupied by more than one particle (\Gls{EP}). It will lead to equilibrium distributions of Fermi-Dirac type for
 the mean occupation of the cells.%Cite this
-The two phase will now be discussed.
+The two phases will now be discussed.
 \subsubsection{Collision phase}
 This is a basic model and thus only has one collision rule, all other configurations are treated as if no collisions have occurred. The collision rules only consider local sites and only has a local effect. The notation to select the nth site is $s_{n}$. If $s_{i}$ is equals to the opposite site $s_{j}$ where $j = (i + 2)\bmod{4}$ and the other two sites are empty. Then $s_{k}$ will take the value of $s_{i}$ and $s_{d}$ will take the value of $s_{j}$ where k and d are the indices of the open sites. The sites $s_{j}$ and $s_{i}$ are then set to empty.
 \begin{figure}[H]
@@ -182,7 +182,7 @@ This is a basic model and thus only has one collision rule, all other configurat
 \end{minipage} 
 \end{figure}
 \subsubsection{Propagation phase}
-The propagation phase only considers the local neighbours of a cell and not the cell it self. The propagation phase has no effect on the local neighbours of a cell, only on the cell it self. The cell's neighbours will be denoted as $n_i$ where $i \in \{0, 1, 2, 3\}$, the cell it self does not count as a neighbour. Neighbour $n_0$ is the top neighbour, neighbour $n_1$ is tot the right, neighbour $n_2$ is below and neighbour $n_3$ is tot the left of the cell. The propagation rules work as follow: If the cell's neighbour $n_i$ has a occupied site $s_{i}$ then the particle in that site moves to the cell's
+The propagation phase only considers the local neighbours of a cell and not the cell it self. The propagation phase has no effect on the local neighbours of a cell, only on the cell it self. The cell's neighbours will be denoted as $n_i$ where $i \in \{0, 1, 2, 3\}$, the cell itself does not count as a neighbour. Neighbour $n_0$ is the top neighbour, neighbour $n_1$ is tot the right, neighbour $n_2$ is below and neighbour $n_3$ is tot the left of the cell. The propagation rules work as follow: If the cell's neighbour $n_{(i + 2)}$ has a occupied site $s_{i}$ then the particle in that site moves to the cell's
 site $s_{i}$.
 A thing to keep in mind while applying the propagation phase is, that it will require two states/matrices one that stores the previous results and one that will store the new results.
 
@@ -391,8 +391,8 @@ A thing to keep in mind while applying the propagation phase is, that it will re
 \subsubsection{Boundary conditions}
 We will discuss two approaches to handle the boundary condition i.e. wrap around (also known as repeating) and reflection. Both conditions only have an effect on the propagation phase and not on the collision phase. Also when generating a lattice grid and using the reflection boundary condition do not generate particles in the border sites\footnote{Border sites are the sites right next to the border and not all 4 sites of the border cell} this will create problems.
 \paragraph{Wrap around}
-This approach can easily be explained by firstly placing copies of the current lattice all around it self i.e all 4 positions. The center lattice is the original while the other 4 lattices are copies.
-Secondly by running the propagation phase on the new lattice. All the changes that happen in the center lattice must then be applied to the original\footnote{What is meant by original lattice is the lattice that was created after the collision phase has executed} lattice. All of the changes that happen in copies are ignored. This effect can also easily be achieved by making use of the module operator.
+This approach can easily be explained by firstly placing copies of the current lattice all around itself i.e all 4 positions. The center lattice is the original while the other 4 lattices are copies.
+Secondly, by running the propagation phase on the new lattice. All the changes that happen in the center lattice must then be applied to the original\footnote{What is meant by original lattice is the lattice that was created after the collision phase has executed} lattice. All of the changes that happen in copies are ignored. This effect can also easily be achieved by making use of the module operator.
 \begin{figure}[H]
 \begin{minipage}{0.5\textwidth}
 \begin{tikzpicture}[scale=0.4]
@@ -521,7 +521,7 @@ Secondly by running the propagation phase on the new lattice. All the changes th
 \end{figure}
 \paragraph{Reflection} 
 This is a easy and quick approach to handle the boundary conditions.
-When a particle collides with the boundary it changes its direction by $180^{\circ}$, note by moving a particle to the apposite site is the same as rotating by $180^{\circ}$. It then propagates in that direction.
+When a particle collides with the boundary it changes its direction by $180^{\circ}$, note by moving a particle to the opposite side is the same as rotating by $180^{\circ}$. It then propagates in that direction.
 \begin{figure}[H]
 \begin{minipage}{0.29\textwidth}
 \begin{tikzpicture}[scale=0.4]
@@ -712,7 +712,7 @@ When a particle collides with the boundary it changes its direction by $180^{\ci
 \end{figure}
 \subsubsection{Mass and Momentum Densities}
 The \acrshort{lgca} can be fully describe by the boolean fields $n_{i}(t, \textbf{r}_{j})$, where $i \in \{0, 1, 2, 3\}$, \textbf{r} is the position of the cell and t is the discrete time. $n_{i}(t, \textbf{r}_{j})$ means the boolean value of the ith site at position \textbf{r} at time t.
-Before calculating the mass and momentum densities we require the mean occupation numbers. The mean occupation number for site $i$ at position \textbf{x}, is the average of $n_{i}(t, \textbf{r}_{j})$ where 
+Before calculating the mass and momentum densities, we require the mean occupation numbers. The mean occupation number for site $i$ at position \textbf{x}, is the average of $n_{i}(t, \textbf{r}_{j})$ where 
 $\textbf{r}_{j}$ are the the positions of the neighbours of \textbf{x}
 \[N_{i}(t,\textbf{x}) = \frac{\sum_{j = 0}^{3} n_{i}(t,\textbf{r}_{j})}{4}.\]
 The mass density for time t and position \textbf{x} is defined as follow:
@@ -743,15 +743,15 @@ The Time complexity analysis was done for an unoptimized implementation of HHP. 
  $O(n^2)$ and for $n$ simulations is $O(n^3)$.
 \subsection{FHP}
 \subsubsection{History}
-The FHP model was proposed by Frisch, Hasslacher and Pomeau in 1986 and received its name from the initials of the authors. This was the first model that showed it is possible for a \acrshort{lgca} to yield the Navier-Stokes equation in the macroscopic limit. This was a big discovery and lead to the rapid development of lattice-gas cellular automata. There where three FHP models developed FHP-I, FHP-II and FHP-III.
+The FHP model was proposed by Frisch, Hasslacher and Pomeau in 1986 and received its name from the initials of the authors. This was the first model that showed it is possible for a \acrshort{lgca} to yield the Navier-Stokes equation in the macroscopic limit. This was a big discovery and led to the rapid development of lattice-gas cellular automata. There where three FHP models developed FHP-I, FHP-II and FHP-III.
 The main difference between each of the models are the collision rules that are used.
-Each model contains its predecessors collision rules. So FHP-III contains all of FHP-II's collision rules and FHP-II contains all of FHP-I's collision rules. 
+Each model contains its predecessors' collision rules. So FHP-III contains all of FHP-II's collision rules and FHP-II contains all of FHP-I's collision rules. 
 The FHP model is invariant under rotations by n * $60^{\circ}$ modulo $360^{\circ}$ (hexagonal symmetry).
 
 
 \subsubsection{Model Description}
 The FHP model is a \acrshort{lgca} that make use of a hexagonal lattice.
-Each cell has 6 velocity vectors $\textbf{c}_{i}$ where $i \in \{0, 1, 2, 3, 4, 5\}$ with $60^{\circ}$ between each vector. Also each velocity vector is associated with a site see Fig \ref{figure:Hsingle-cell}. All particles have the same mass m and are indistinguishable. A site can only be in one of two states occupied or empty. A site can not be occupied by more than one particle (\Gls{EP}). It will lead to equilibrium distributions of Fermi-Dirac type for the mean occupation of the cells.%Cite this
+Each cell has 6 velocity vectors $\textbf{c}_{i}$ where $i \in \{0, 1, 2, 3, 4, 5\}$ with $60^{\circ}$ between each vector. Also each velocity vector is associated with a site see Fig \ref{figure:Hsingle-cell}. All particles have the same mass m and are indistinguishable. A site can only be in one of two states, occupied (1) or empty (0). A site can not be occupied by more than one particle (\Gls{EP}). It will lead to equilibrium distributions of Fermi-Dirac type for the mean occupation of the cells.%Cite this
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[scale=0.65]
@@ -815,7 +815,7 @@ Each cell has 6 velocity vectors $\textbf{c}_{i}$ where $i \in \{0, 1, 2, 3, 4, 
 \noindent The velocity vectors must have a symmetrical property i.e. $\sum_{i = 0}^{5} \textbf{c}_{i} = \textbf{0}$. Also each vector should be of unit length.
 \subsubsection{Collision rules}
 The collision rules for FHP are a lot more complex than HPP. FHP also introduced non-determinism in some of the rules because if this was not done the model would become chiral. This is an undesired property because the hydrodynamic equations do not break parity symmetry.
-The 2-particle collisions conserve mass, momentum and also an addition property\footnote{Conserves the difference of the number of particles that stream in opposite direction}, the same as in HPP. The addition property has no real world counterpart. This is called a spurious invariant. This spurious invariant is eliminated when 3-particle collisions
+The 2-particle collisions conserve mass, momentum and also an additional property\footnote{Conserves the difference of the number of particles that stream in opposite direction}, the same as in HPP. The additional property has no real world counterpart. This is called a spurious invariant. This spurious invariant is eliminated when 3-particle collisions
 are used. Let $s_{i}$ and $c_{i}$ respectively denote the $i$th site and vector of the current cell where $i \in \{0, 1, 2, 3, 4, 5\}$. 
 \paragraph{Rule 1}(2-particle head-on collisions):\\This collision rule was added in FHP-I. When two opposite sites are occupied and the rest of the sites are empty,  then a collision has happened. Now are two configurations to choose from. The choice between the two configurations are done randomly with a probability of 0.5. The rule can be defined as: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{j} = 0)\wedge(j \neq i)\wedge(j \neq (i + 3)) \mbox{ for } i,j \in \{0, 1, 2, 3, 4, 5\}\] then with p = 0.5 choose \[ (s_{i - 1} := s_{i}), (s_{i + 2} := s_{i + 3})\]or\[(s_{i + 1} := s_{i}), (s_{i + 4} := s_{i + 3}).\]
 \begin{figure}[H]
@@ -1027,7 +1027,7 @@ else\[ (s_{i + 1} := s_{i}), (s_{i + 3} := s_{i + 2}), (s_{i + 5} := s_{i + 4}).
   \label{figure:Hcollision_FHP2}
 \end{figure}
 \paragraph{Rule 3}(4-particle head-on collisions):\\
-This collision rule was added in FHP-II. This rule is similar to that of rule 1 in the sense that their are two possible outcomes with equal probability and both rules work with head-on collisions. The difference is rule 1 only applies for one head-on collision where rule 3 applies for two head-on collisions that are next to each other. The rule can be defined as follow: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{i + 1} = s_{i + 4})\wedge(s_{i + 1} = 1) \mbox{ for } i \in \{0, 1, 2, 3, 4, 5\}\] then with p = 0.5 choose 
+This collision rule was added in FHP-II. This rule is similar to that of rule 1 in the sense that there are two possible outcomes with equal probability and both rules work with head-on collisions. The difference is, rule 1 only applies for one head-on collision where rule 3 applies for two head-on collisions that are next to each other. The rule can be defined as follows: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{i + 1} = s_{i + 4})\wedge(s_{i + 1} = 1) \mbox{ for } i \in \{0, 1, 2, 3, 4, 5\}\] then with p = 0.5 choose 
 \[ (s_{i - 1} := s_{i}), (s_{i } := s_{i + 1}),(s_{i + 2} := s_{i + 3}), (s_{i + 3} := s_{i + 4})\]
 or
 \[ (s_{i + 1} := s_{i}), (s_{i + 2} := s_{i + 1}),(s_{i + 4} := s_{i + 3}), (s_{i + 5} := s_{i + 4}).\]
@@ -1153,9 +1153,9 @@ or
   \label{figure:Hcollision_FHP2}
 \end{figure}
 \paragraph{Rule 4}(2-particle head-on collisions with observer):
-This collision rule was added in FHP-II. This rule is similar to rule 2 to but introduces
-a observer particle. The placing of this addition observer particle is not import because as previously stated
-all of the rules are invariant under rotations by n * $60^{\circ}$ modulo $360^{\circ}$(hexagonal symmetry), but observer particle and the open site opposite of the observer particle must remain stationary and unchanged during the collision . The two colliding particles move to the two remaining open positions. The rule can be defined as: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{j} = 1)\wedge(j \neq i)\wedge(j \neq (i + 3))\wedge(j \neq k)\wedge(i \neq k)\wedge(k \neq (i + 3))\]\[\mbox{ for } i,j,k \in \{0, 1, 2, 3, 4, 5\}\] then 
+This collision rule was added in FHP-II. This rule is similar to rule 2, but introduces
+an observer particle. The placing of this additional observer particle is not important because as previously stated,
+all of the rules are invariant under rotations by n * $60^{\circ}$ modulo $360^{\circ}$(hexagonal symmetry), but the observer particle and the open site opposite of the observer particle must remain stationary and unchanged during the collision. The two colliding particles move to the two remaining open positions. The rule can be defined as: If \[(s_{i} = s_{i + 3})\wedge(s_{i} = 1)\wedge(s_{j} = 1)\wedge(j \neq i)\wedge(j \neq (i + 3))\wedge(j \neq k)\wedge(i \neq k)\wedge(k \neq (i + 3))\]\[\mbox{ for } i,j,k \in \{0, 1, 2, 3, 4, 5\}\] then 
 \[ (s_{k + 3} := s_{i}), (s_{k} := s_{i + 3}).\]
 \begin{figure}[H]
   \begin{minipage}{0.49\textwidth}
@@ -1246,7 +1246,7 @@ This collision rule was added in FHP-III.
 This collision rule introduces rest particles into
 a \acrshort{lgca}. We will not be using this rule or discuss it because I do not agree that the rule conserves momentum.
 \subsubsection{Propagation rules}
-The propagation phase only considers the local neighbours of a cell and not the cell it self. The propagation phase has no effect on the local neighbours of a cell, only on the cell it self. The cell's neighbours will be denoted as $n_i$ where $i \in \{0, 1, 2, 3, 4, 5\}$, the cell it self does not count as a neighbour. Neighbour $n_0$ is the top left neighbour and continues clockwise. The propagation rules work as follow: If the cell's neighbour $n_i$ has a occupied site $s_{i}$ then the particle in that site moves to the current cell's
+The propagation phase only considers the local neighbours of a cell and not the cell itself. The propagation phase has no effect on the local neighbours of a cell, only on the cell itself. The cell's neighbours will be denoted as $n_i$ where $i \in \{0, 1, 2, 3, 4, 5\}$, the cell itself does not count as a neighbour. Neighbour $n_0$ is the top left neighbour and continues clockwise. The propagation rules work as follows: If the cell's neighbour $n_{(i + 3)}$ has a occupied site $s_{i}$ then the particle in that site moves to the current cell's
 site $s_{i}$.
 \begin{figure}[H]
   \begin{minipage}{0.49\textwidth}

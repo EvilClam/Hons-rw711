@@ -6,13 +6,13 @@
 \beamer@subsectionintoc {3}{2}{HPP Propagation Phase}{7}{0}{3}
 \beamer@subsectionintoc {3}{3}{HPP Mass and Momentum densities}{8}{0}{3}
 \beamer@subsectionintoc {3}{4}{HPP Mass and Momentum densities continued}{9}{0}{3}
-\beamer@subsectionintoc {3}{5}{FHP}{10}{0}{3}
-\beamer@subsectionintoc {3}{6}{FHP Collision Phase1}{11}{0}{3}
-\beamer@subsectionintoc {3}{7}{FHP Collision Phase2}{12}{0}{3}
-\beamer@subsectionintoc {3}{8}{FHP Collision Phase3}{13}{0}{3}
-\beamer@subsectionintoc {3}{9}{FHP Collision Phase4}{14}{0}{3}
-\beamer@subsectionintoc {3}{10}{FHP Propagation Phase}{15}{0}{3}
-\beamer@subsectionintoc {3}{11}{FHP Propagation Phase}{16}{0}{3}
-\beamer@subsectionintoc {3}{12}{FHP Propagation Phase}{17}{0}{3}
-\beamer@sectionintoc {4}{Applications}{18}{0}{4}
-\beamer@sectionintoc {5}{Bibliography}{19}{0}{5}
+\beamer@sectionintoc {4}{FHP}{10}{0}{4}
+\beamer@subsectionintoc {4}{1}{FHP Collision Phase1}{11}{0}{4}
+\beamer@subsectionintoc {4}{2}{FHP Collision Phase2}{12}{0}{4}
+\beamer@subsectionintoc {4}{3}{FHP Collision Phase3}{13}{0}{4}
+\beamer@subsectionintoc {4}{4}{FHP Collision Phase4}{14}{0}{4}
+\beamer@subsectionintoc {4}{5}{FHP Propagation Phase}{15}{0}{4}
+\beamer@subsectionintoc {4}{6}{FHP Propagation Phase}{16}{0}{4}
+\beamer@subsectionintoc {4}{7}{FHP Propagation Phase}{17}{0}{4}
+\beamer@sectionintoc {5}{Applications}{18}{0}{5}
+\beamer@sectionintoc {6}{Bibliography}{19}{0}{6}

@@ -1,0 +1,6 @@
+Test1-5 Was made by frank schreiber
+Please not this jar will only work on ubuntu
+Please note there are two arguments. The first is the file name and the second is true or false.
+true(Default) indicates that it is a 2D file that is to be loaded
+false indicates that it is a 3D file that is to be loaded.
+If there is no arguments or thefile name = -1 then a random CA will be generated.
