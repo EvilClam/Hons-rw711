@@ -1,0 +1,67 @@
+\documentclass[a4paper, 1pt]{article}
+\title{Homework 2}
+\author{Shaun Schreiber}
+\newcommand{\plus}{\raisebox{.4ex}{\small{+}}}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Quadratic}
+\subsection{Regular Expressions}
+\begin{enumerate}
+\item .\plus a*c
+\item b*b*
+\item .\plus .\plus F
+\end{enumerate}
+\subsection{Input}
+\begin{enumerate}
+\item a\dots aX
+\item b\dots bX
+\item c\dots cX
+\end{enumerate}
+\subsection{Reason}
+The .\plus and symbol* in the above expressions are the culprits that
+causes the quadratic running time. The reason for it is that it starts by excepting one random character. The number of random characters allowed grows by one each time there is a miss match and because this miss match is at the end it cause quadratic running time. Basically the algorithm backtracks till it finds a branch it hasn't discovered because the branch will only ever be where the number of random characters ends and a new symbol starts it forces the algorithm to run in quadratic time.
+\section{Cubic}
+\subsection{Regular Expressions}
+\begin{enumerate}
+\item .\plus [cb]*[c]*F
+\item a*a*a*F
+\item .\plus .\plus .\plus F
+\end{enumerate}
+\subsection{Input}
+\begin{enumerate}
+\item c\dots caX
+\item a\dots aX
+\item a\dots aX
+\end{enumerate}
+\subsection{Reason}
+To get cubic or any higher exponent we just make use of the following form where n $>$ 0, $s_{i}$ is distinct and n + 1 is the running time. 
+
+.\plus$[\textbf{s}_{1}]$*
+$[\textbf{s}_{1}\textbf{s}_{2}]$*
+\dots 
+$[\textbf{s}_{1}$\dots $\textbf{s}_{n}]$*F
+\\
+or
+
+$\underbrace{\textbf{s}_{1}}_{0}$*$\underbrace{\textbf{s}_{1}}_{1}$*
+\dots 
+$\underbrace{\textbf{s}_{1}}_{n}$*F\\
+Note that the input string must be created in such a why that it will always only fail at the very last character. The reason why these expressions have cubic running time is because each time a miss match 
+accrues the algorithm backtracks till it finds a branch it hasn't yet tried. In this case these branches are when the first and second pattern meet and when the second and third pattern meet. When all of the branches between the second and third pattern has been tried, only then will it go on to the next available branch between the first and second pattern and then retry all of the branches between the second and third pattern again. Repeating this process till all branches are discovered.  This causes the cubic running time.
+\section{Exponential}
+\subsection{Regular Expressions}
+\begin{enumerate}
+\item ((a)*)*
+\item ((ab)*)*
+\item (a\verb#|#aa)*
+\end{enumerate}
+\subsection{Input}
+\begin{enumerate}
+\item a\dots aX
+\item ab\dots abX
+\item a\dots aX
+\end{enumerate}
+\subsection{Reason}
+The reason each of these regular expressions take exponential time is: the inner star indicates that there can be any number of a's the outer star indicates that there can be any number of these groups of a's. Therefore if the very last element forces a miss match it will try all possible group sizes and combinations of these group sizes thus taking exponential time.
+\end{document}
